@@ -1,5 +1,9 @@
-# Bengkelin
+AI usage:
+Saya menggunakan AI untuk pembuatan SVG dan Pembuatan Dokumentasi, untuk kode saya mengejakan sendiri jadi untuk SVG dan Dokumentasi saya menggunakan AI untuk membantu saya mengejakannya, untuk primt yang saya gunaan di SVG adalah : "buatkan saya desain gamabrnya untuk uji coba aakah gambarnya sudah benar atau tidak, jangan gunakan nano banan untuk membuat gamenya gunakna svg saja agar lebih ringan" lalu utnuk dokumentasinya saya menggunakan primt "buatkan saya dokumenatsi berdasarkan project ini, bantu saya mendokumentasikan di dalam readme.md"
 
+AI yang saya gunakan adalah Antigravity (Gemini) soalnya gratisan pak heheheh!!!!
+
+# Bengkelin
 Bengkelin adalah aplikasi web untuk memesan jadwal servis di bengkel motor, baik untuk motor konvensional (bensin) maupun motor listrik. Pengguna dapat mendaftarkan kendaraan, memilih bengkel dan layanan, menyimpan riwayat servis, dan mendapat pengingat servis berikutnya.
 
 - **Nama Lengkap:** Thoriq
