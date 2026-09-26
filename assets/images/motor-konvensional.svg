@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" role="img">
+  <title>Ilustrasi motor konvensional berbahan bakar bensin</title>
+  <rect x="0" y="0" width="320" height="200" rx="12" fill="#fff7ed"/>
+  <line x1="20" y1="168" x2="300" y2="168" stroke="#d6d3d1" stroke-width="4"/>
+  <!-- roda -->
+  <circle cx="80" cy="140" r="28" fill="#374151"/>
+  <circle cx="80" cy="140" r="12" fill="#d1d5db"/>
+  <circle cx="240" cy="140" r="28" fill="#374151"/>
+  <circle cx="240" cy="140" r="12" fill="#d1d5db"/>
+  <!-- rangka dan bodi -->
+  <path d="M80 140 L130 100 L200 100 L240 140" fill="none" stroke="#6b7280" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M110 105 Q120 72 165 74 L215 80 Q228 94 222 108 L125 112 Z" fill="#dc2626"/>
+  <rect x="135" y="62" width="60" height="12" rx="6" fill="#111827"/>
+  <path d="M215 80 L236 50" stroke="#6b7280" stroke-width="6" stroke-linecap="round"/>
+  <line x1="226" y1="50" x2="250" y2="50" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="252" cy="70" r="7" fill="#fde047"/>
+  <!-- mesin dan knalpot -->
+  <rect x="140" y="112" width="44" height="26" rx="4" fill="#9ca3af"/>
+  <path d="M150 138 L60 150" stroke="#78716c" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="44" cy="146" r="5" fill="#d6d3d1"/>
+  <circle cx="32" cy="138" r="7" fill="#e7e5e4"/>
+  <!-- ikon tetes bensin -->
+  <path d="M286 22 Q298 40 298 48 A12 12 0 0 1 274 48 Q274 40 286 22 Z" fill="#f97316"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60" role="img">
+  <title>Logo Bengkelin</title>
+  <circle cx="30" cy="30" r="26" fill="#1f6feb"/>
+  <circle cx="30" cy="30" r="17" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <path d="M18 42 L34 26" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="37" cy="23" r="7" fill="#ffffff"/>
+  <circle cx="39" cy="21" r="3" fill="#1f6feb"/>
+  <path d="M26 18 L22 30 L29 30 L25 42" fill="none" stroke="#ffd33d" stroke-width="3" stroke-linejoin="round"/>
+  <text x="64" y="39" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#1f2937">Bengkelin</text>
+</svg>

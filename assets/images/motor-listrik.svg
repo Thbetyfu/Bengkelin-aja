@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" role="img">
+  <title>Ilustrasi motor listrik dengan baterai</title>
+  <rect x="0" y="0" width="320" height="200" rx="12" fill="#ecfdf5"/>
+  <line x1="20" y1="168" x2="300" y2="168" stroke="#d1d5db" stroke-width="4"/>
+  <!-- roda -->
+  <circle cx="78" cy="140" r="26" fill="#1f2937"/>
+  <circle cx="78" cy="140" r="11" fill="#a7f3d0"/>
+  <circle cx="242" cy="140" r="26" fill="#1f2937"/>
+  <circle cx="242" cy="140" r="11" fill="#a7f3d0"/>
+  <!-- bodi skuter -->
+  <path d="M60 128 Q70 96 120 96 L150 96 L160 122 L210 122 L222 60 L234 60 L250 130 L200 138 L90 138 Z" fill="#10b981"/>
+  <rect x="80" y="84" width="64" height="12" rx="6" fill="#111827"/>
+  <line x1="218" y1="46" x2="246" y2="46" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <line x1="228" y1="46" x2="226" y2="62" stroke="#111827" stroke-width="5"/>
+  <circle cx="252" cy="72" r="7" fill="#fde047"/>
+  <!-- baterai -->
+  <rect x="112" y="108" width="40" height="22" rx="3" fill="#ffffff" stroke="#065f46" stroke-width="3"/>
+  <rect x="152" y="114" width="5" height="10" fill="#065f46"/>
+  <rect x="116" y="112" width="24" height="14" fill="#34d399"/>
+  <!-- ikon petir -->
+  <path d="M290 18 L272 50 L286 50 L278 76 L300 40 L286 40 Z" fill="#facc15" stroke="#a16207" stroke-width="2" stroke-linejoin="round"/>
+</svg>
