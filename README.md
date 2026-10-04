@@ -190,8 +190,3 @@ Screenshot halaman penuh dalam kondisi tanpa CSS (hasil Pekan 2).
 
 ![Screenshot halaman Daftar Bengkel](docs/screenshots/04-daftar-bengkel.png)
 
-## Rencana Pengembangan
-
-- **Pekan 3 (selesai):** menambahkan CSS native (`assets/css/style.css`) untuk tata letak, warna, tipografi, dan responsive dasar.
-- **Pekan 4:** menerapkan framework CSS (Bootstrap atau Tailwind) agar tampilan responsif.
-- **Pekan berikutnya:** menambahkan JavaScript untuk interaksi di sisi klien, lalu backend dan database untuk menyimpan data pengguna, kendaraan, booking, dan riwayat servis, serta fitur pengingat servis otomatis.
