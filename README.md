@@ -1,3 +1,13 @@
+catatan:
+1. Data masih fiktif, nanti coba di buat tidak fiktif sraping di internet
+2. svg masih jelek
+3. desain masih Jelek karena ngambil termpalte doang
+4. integrasi mungkin nanti dockumennya di buatkan prd,brd,srs dan frs biar lebih jelas arah aplikasinya kemana dan bisa dikerjian dengan vibe koding ketika sudah di week atas, sekarang masih belum full vibe koding
+
+
+tugas buat week 3 done!!!!!
+
+
 AI usage:
 Saya menggunakan AI untuk pembuatan SVG dan Pembuatan Dokumentasi, untuk kode saya mengejakan sendiri jadi untuk SVG dan Dokumentasi saya menggunakan AI untuk membantu saya mengejakannya, untuk primt yang saya gunaan di SVG adalah : "buatkan saya desain gamabrnya untuk uji coba aakah gambarnya sudah benar atau tidak, jangan gunakan nano banan untuk membuat gamenya gunakna svg saja agar lebih ringan" lalu utnuk dokumentasinya saya menggunakan primt "buatkan saya dokumenatsi berdasarkan project ini, bantu saya mendokumentasikan di dalam readme.md"
 
