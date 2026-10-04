@@ -10,6 +10,73 @@ Bengkelin adalah aplikasi web untuk memesan jadwal servis di bengkel motor, baik
 - **NIM:** 103022430006
 - **Mata Kuliah:** Pemrograman Web Fullstack
 
+## Tugas Pekan 3 - CSS Native
+
+Pekan ini struktur HTML dari Pekan 2 diberi tampilan memakai **CSS native** (tanpa framework). Semua aturan gaya ada di satu file eksternal, `assets/css/style.css`, yang dihubungkan ke keempat halaman lewat:
+
+```html
+<link rel="stylesheet" href="assets/css/style.css">
+```
+
+Tidak ada tag `<style>` atau atribut `style` di HTML. Isi dan struktur semantic halaman tetap sama dengan Pekan 2; di HTML hanya ditambahkan atribut `class` serta beberapa `<div>` dan `<span>` sebagai pengelompok untuk styling.
+
+### Penerapan CSS
+
+| Ketentuan tugas | Penerapan di `style.css` |
+| --- | --- |
+| **Font properties** (`font-family`, `font-size`, `font-weight`) | Variabel `--font-teks` (Segoe UI/Helvetica/Arial) untuk isi dan `--font-judul` (Trebuchet MS) untuk judul. Skala ukuran konsisten di semua halaman: `h1` 2rem/700, `h2` 1.375rem/700, `h3` 1.0625rem/600, isi 16px/400. Label formulir dan menu memakai `font-weight: 600`. |
+| **Styling list** (`ul`/`ol`) | Menu navigasi (`ul` jadi baris menu berbentuk pil), breadcrumb (`ol` dengan pemisah `/` dari `::before`), daftar pengingat servis (bullet kuning kustom), daftar layanan bengkel (chip), dan tips perawatan (warna `::marker`). |
+| **Alignment teks** (`text-align`) | Judul halaman dan pengantar rata tengah; label formulir rata kanan di desktop dan rata kiri di mobile; label `<dt>` di halaman detail rata kanan; kolom biaya di tabel rata kanan, kolom jumlah dan nomor rata tengah; footer rata tengah. |
+| **Warna background & teks** | Palet diambil dari logo dan disimpan sebagai variabel CSS di `:root`: biru `#1f6feb` (warna utama), kuning `#ffd33d` (aksen), abu gelap `#1f2937` (teks). Ada juga warna khusus jenis motor (oranye untuk konvensional, hijau untuk listrik) dan warna status (hijau "Selesai", kuning "Dijadwalkan"). |
+| **`<div>` dan `<span>`** | `<div>`: `.container`, `.header-inner`, `.brand`, `.page-intro`, `.card-grid`, `.table-wrapper`, `.booking-layout`, `.info-grid`. `<span>`: `.tag` (jenis motor), `.badge` (status servis), `.required` (tanda wajib isi), `.radio-option`, `.code` (kode booking), `.label`, `.author`. |
+| **Responsive** (`@media`) | Lihat bagian berikut. |
+
+### Responsive dengan `@media` query
+
+- **`max-width: 900px`**: halaman booking berubah dari dua kolom (ilustrasi + formulir) menjadi satu kolom.
+- **`max-width: 768px`**: **navigasi berubah dari horizontal menjadi vertikal** (`flex-direction: column`), logo dan tagline ditumpuk di tengah, label formulir pindah ke atas input, kotak informasi di halaman detail menjadi satu kolom, dan kartu bengkel menjadi satu kolom.
+- **`max-width: 480px`**: pasangan label-nilai `<dl>` ditumpuk, padding container dikecilkan.
+- Tabel dibungkus `.table-wrapper` (`overflow-x: auto`) sehingga bisa digeser di layar sempit tanpa merusak tata letak.
+
+```css
+/* Mobile: navigasi berubah dari horizontal menjadi vertikal */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+  }
+}
+```
+
+### Screenshot Pekan 3 (Desktop dan Mobile)
+
+Desktop diambil pada lebar 1366px, mobile pada lebar 390px. Semua screenshot ada di `docs/screenshots/pekan-3/`.
+
+#### 1. Beranda (`index.html`)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Beranda versi desktop](docs/screenshots/pekan-3/01-beranda-desktop.png) | ![Beranda versi mobile](docs/screenshots/pekan-3/01-beranda-mobile.png) |
+
+#### 2. Form Booking Servis (`booking.html`)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Form booking versi desktop](docs/screenshots/pekan-3/02-booking-desktop.png) | ![Form booking versi mobile](docs/screenshots/pekan-3/02-booking-mobile.png) |
+
+#### 3. Detail Servis (`detail.html`)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Detail servis versi desktop](docs/screenshots/pekan-3/03-detail-desktop.png) | ![Detail servis versi mobile](docs/screenshots/pekan-3/03-detail-mobile.png) |
+
+#### 4. Daftar Bengkel (`bengkel.html`)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Daftar bengkel versi desktop](docs/screenshots/pekan-3/04-daftar-bengkel-desktop.png) | ![Daftar bengkel versi mobile](docs/screenshots/pekan-3/04-daftar-bengkel-mobile.png) |
+
+Validasi: semua halaman tetap lolos `html-validate` (preset `html-validate:recommended`) setelah penambahan class, `<div>`, dan `<span>`.
+
 ## Tugas Pekan 2 - Struktur HTML
 
 Pada pekan ini proyek hanya berisi **struktur HTML murni** tanpa CSS (tidak ada tag `<style>`, atribut `style`, maupun framework) dan tanpa JavaScript. Fokus tugas:
@@ -43,7 +110,8 @@ bengkelin/
 ├── bengkel.html
 ├── assets/
 │   ├── css/
-│   │   └── .gitkeep
+│   │   ├── .gitkeep
+│   │   └── style.css
 │   ├── images/
 │   │   ├── bengkel.svg
 │   │   ├── logo-bengkelin.svg
@@ -56,10 +124,11 @@ bengkelin/
         ├── 01-beranda.png
         ├── 02-booking.png
         ├── 03-detail.png
-        └── 04-daftar-bengkel.png
+        ├── 04-daftar-bengkel.png
+        └── pekan-3/            # screenshot desktop & mobile (Pekan 3)
 ```
 
-Folder `assets/css/` dan `assets/js/` sengaja disiapkan (masih kosong) untuk pekan berikutnya. File `.htmlvalidate.json` adalah konfigurasi kecil untuk validator HTML (`html-validate`).
+Folder `assets/css/` berisi stylesheet Pekan 3; folder `assets/js/` masih kosong untuk pekan berikutnya. File `.htmlvalidate.json` adalah konfigurasi kecil untuk validator HTML (`html-validate`).
 
 ## Penerapan Semantic HTML5
 
@@ -91,9 +160,9 @@ Folder `assets/css/` dan `assets/js/` sengaja disiapkan (masih kosong) untuk pek
 
 Validasi: semua halaman lolos `html-validate` (preset `html-validate:recommended`) dan W3C Nu HTML Checker tanpa error maupun peringatan.
 
-## Screenshot
+## Screenshot Pekan 2
 
-Screenshot halaman penuh dalam kondisi tanpa CSS.
+Screenshot halaman penuh dalam kondisi tanpa CSS (hasil Pekan 2).
 
 ### 1. Beranda - Riwayat & Jadwal Servis (`index.html`)
 
@@ -113,6 +182,6 @@ Screenshot halaman penuh dalam kondisi tanpa CSS.
 
 ## Rencana Pengembangan
 
-- **Pekan 3:** menambahkan CSS (file di `assets/css/`) untuk tata letak, warna, dan tipografi.
+- **Pekan 3 (selesai):** menambahkan CSS native (`assets/css/style.css`) untuk tata letak, warna, tipografi, dan responsive dasar.
 - **Pekan 4:** menerapkan framework CSS (Bootstrap atau Tailwind) agar tampilan responsif.
 - **Pekan berikutnya:** menambahkan JavaScript untuk interaksi di sisi klien, lalu backend dan database untuk menyimpan data pengguna, kendaraan, booking, dan riwayat servis, serta fitur pengingat servis otomatis.

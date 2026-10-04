@@ -1,0 +1,949 @@
+/* Stylesheet utama (Tugas Pekan 3 - CSS native, tanpa framework) */
+/* Dipakai oleh: index.html, booking.html, detail.html, bengkel.html */
+/* sesuai tugas sekarang dimasukan dulu ke dalam 1 file tapi nanti keknya bakal dipisah-pisah sesuai halaman, biar lebih rapi dan modular */
+
+
+
+/* 1. Variabel warna & tipografi ------------------------------------------ */
+:root {
+  /* Warna identitas diambil dari logo Bengkelin */
+  --warna-utama: #1f6feb;        /* biru logo */
+  --warna-utama-gelap: #1550b8;
+  --warna-utama-muda: #e8f0fe;
+  --warna-aksen: #ffd33d;        /* kuning petir pada logo */
+  --warna-teks: #1f2937;         /* abu gelap teks logo */
+  --warna-teks-redup: #6b7280;
+  --warna-latar: #f4f6fa;
+  --warna-permukaan: #ffffff;
+  --warna-garis: #dde3ec;
+
+  /* Warna jenis motor */
+  --warna-konvensional: #c2410c;
+  --warna-konvensional-muda: #fff1e8;
+  --warna-listrik: #047857;
+  --warna-listrik-muda: #e6f7ef;
+
+  /* Warna status */
+  --warna-selesai: #166534;
+  --warna-selesai-muda: #dcfce7;
+  --warna-jadwal: #92400e;
+  --warna-jadwal-muda: #fef3c7;
+
+  --font-teks: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-judul: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  --font-kode: Consolas, "Courier New", monospace;
+
+  --radius: 10px;
+  --bayangan: 0 1px 3px rgba(31, 41, 55, 0.08), 0 4px 12px rgba(31, 41, 55, 0.05);
+}
+
+/* 2. Reset ringan & dasar ------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  font-family: var(--font-teks);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--warna-utama);
+}
+
+a:hover,
+a:focus {
+  color: var(--warna-utama-gelap);
+}
+
+:focus-visible {
+  outline: 3px solid var(--warna-aksen);
+  outline-offset: 2px;
+}
+
+/* 3. Tipografi ------------------------------------------------------------ */
+h1,
+h2,
+h3 {
+  font-family: var(--font-judul);
+  line-height: 1.25;
+  color: var(--warna-teks);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--warna-utama-muda);
+}
+
+h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+/* Pembuka halaman: judul dan paragraf pengantar rata tengah */
+.page-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2rem;
+}
+
+.page-intro p {
+  font-size: 1.0625rem;
+  color: var(--warna-teks-redup);
+}
+
+/* Tautan lompat ke konten (aksesibilitas) */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background-color: var(--warna-teks);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #ffffff;
+}
+
+/* 4. Layout umum ---------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+main.container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--warna-permukaan);
+  border-top: 4px solid var(--warna-utama);
+  border-bottom: 1px solid var(--warna-garis);
+  box-shadow: var(--bayangan);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  display: block;
+  line-height: 0;
+}
+
+.brand-logo img {
+  width: 170px;
+}
+
+.tagline {
+  margin: 0;
+  max-width: 260px;
+  font-size: 0.8125rem;
+  color: var(--warna-teks-redup);
+  line-height: 1.4;
+}
+
+/* Navigasi utama: horizontal di layar lebar */
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  color: var(--warna-teks);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  background-color: var(--warna-utama-muda);
+  color: var(--warna-utama-gelap);
+}
+
+.main-nav a[aria-current="page"] {
+  background-color: var(--warna-utama);
+  color: #ffffff;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--warna-teks);
+  color: #d1d5db;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+.site-footer .author {
+  color: var(--warna-aksen);
+  font-weight: 600;
+}
+
+/* 5. Komponen ------------------------------------------------------------- */
+.panel {
+  background-color: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.panel-highlight {
+  border-left: 5px solid var(--warna-utama);
+}
+
+.callout {
+  background-color: var(--warna-utama-muda);
+  border: 1px solid #c9dbfb;
+  border-left: 5px solid var(--warna-aksen);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: none;
+}
+
+.callout h2 {
+  border-bottom-color: #c9dbfb;
+}
+
+/* Tombol (dipakai untuk <a> dan <button>) */
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 2px solid var(--warna-utama);
+  border-radius: 8px;
+  background-color: var(--warna-utama);
+  color: #ffffff;
+  font-family: var(--font-teks);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--warna-utama-gelap);
+  border-color: var(--warna-utama-gelap);
+  color: #ffffff;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--warna-utama);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background-color: var(--warna-utama-muda);
+  color: var(--warna-utama-gelap);
+}
+
+/* Tag jenis motor (span) */
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.tag-konvensional {
+  background-color: var(--warna-konvensional-muda);
+  color: var(--warna-konvensional);
+}
+
+.tag-listrik {
+  background-color: var(--warna-listrik-muda);
+  color: var(--warna-listrik);
+}
+
+/* Badge status (span) */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-selesai {
+  background-color: var(--warna-selesai-muda);
+  color: var(--warna-selesai);
+}
+
+.badge-dijadwalkan {
+  background-color: var(--warna-jadwal-muda);
+  color: var(--warna-jadwal);
+}
+
+/* Styling list: pengingat servis */
+.reminder-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reminder-list li {
+  position: relative;
+  padding: 0.75rem 0 0.75rem 1.75rem;
+  border-bottom: 1px dashed var(--warna-garis);
+}
+
+.reminder-list li:last-child {
+  border-bottom: none;
+}
+
+.reminder-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 1.2rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: var(--warna-aksen);
+  box-shadow: 0 0 0 3px #fff4c2;
+}
+
+.reminder-list time {
+  font-weight: 600;
+  color: var(--warna-utama-gelap);
+}
+
+/* Styling list biasa di dalam callout (tips perawatan) */
+.callout ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.callout li {
+  margin-bottom: 0.4rem;
+}
+
+.callout li::marker {
+  color: var(--warna-utama);
+}
+
+/* Grid kartu */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.card-grid-wide {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto 0.75rem;
+  border-radius: 8px;
+}
+
+.card p {
+  font-size: 0.9375rem;
+}
+
+.muted {
+  color: var(--warna-teks-redup);
+  font-style: italic;
+}
+
+/* 6. Tabel ---------------------------------------------------------------- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* tabel bisa digeser di layar sempit */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.data-table caption {
+  caption-side: top;
+  padding-bottom: 0.75rem;
+  color: var(--warna-teks-redup);
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--warna-garis);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table thead th {
+  background-color: var(--warna-utama);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.data-table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.data-table thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.data-table tbody th {
+  font-weight: 600;
+  text-align: center;
+  color: var(--warna-teks-redup);
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f8fafd;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--warna-utama-muda);
+}
+
+.data-table tfoot th,
+.data-table tfoot td {
+  border-top: 2px solid var(--warna-teks);
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.data-table tfoot th {
+  text-align: right;
+}
+
+/* Perataan khusus kolom */
+.data-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-table .center {
+  text-align: center;
+}
+
+.data-table .total {
+  color: var(--warna-utama-gelap);
+  font-size: 1.0625rem;
+}
+
+.data-table td.actions {
+  white-space: nowrap;
+}
+
+.actions a {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--warna-utama);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.actions a:hover,
+.actions a:focus {
+  background-color: var(--warna-utama);
+  color: #ffffff;
+}
+
+/* 7. Halaman Booking ------------------------------------------------------ */
+.required {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.figure-pair {
+  margin: 0;
+}
+
+.figure-pair img {
+  display: block;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+}
+
+.figure-pair figcaption {
+  font-size: 0.875rem;
+  color: var(--warna-teks-redup);
+  text-align: center;
+}
+
+.booking-form fieldset {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem 0.25rem;
+  border: 1px solid var(--warna-garis);
+  border-radius: 8px;
+}
+
+.booking-form legend {
+  padding: 0 0.5rem;
+  font-family: var(--font-judul);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--warna-utama-gelap);
+}
+
+/* Baris isian: label di kiri (rata kanan), input di kanan */
+.form-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0.4rem 1rem;
+  align-items: center;
+}
+
+.form-row label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="number"],
+.booking-form input[type="date"],
+.booking-form input[type="time"],
+.booking-form input[type="tel"],
+.booking-form input[type="email"],
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #c3ccd9;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--warna-teks);
+  font-family: var(--font-teks);
+  font-size: 0.9375rem;
+}
+
+.booking-form textarea {
+  resize: vertical;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--warna-utama);
+  outline: 3px solid var(--warna-utama-muda);
+}
+
+/* Grup radio jenis motor */
+.booking-form .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafd;
+}
+
+.booking-form .radio-group legend {
+  font-size: 0.9375rem;
+  color: var(--warna-teks);
+}
+
+.radio-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--warna-garis);
+  border-radius: 999px;
+  background-color: #ffffff;
+  font-weight: 600;
+}
+
+/* Checkbox pengingat */
+.form-check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.form-check label {
+  text-align: left;
+  font-weight: 400;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.back-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* 8. Halaman Detail Servis ------------------------------------------------ */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  padding: 0 0.5rem;
+  color: var(--warna-teks-redup);
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: var(--warna-teks-redup);
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.code {
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  background-color: var(--warna-utama-muda);
+  color: var(--warna-utama-gelap);
+  font-family: var(--font-kode);
+  font-weight: 700;
+}
+
+.detail-figure {
+  margin: 0 auto 1.75rem;
+  max-width: 340px;
+  text-align: center;
+}
+
+.detail-figure img {
+  border-radius: 8px;
+}
+
+.detail-figure figcaption {
+  font-size: 0.875rem;
+  color: var(--warna-teks-redup);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-box {
+  padding: 1.25rem;
+  border: 1px solid var(--warna-garis);
+  border-radius: 8px;
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+
+.info-list dt {
+  font-weight: 600;
+  color: var(--warna-teks-redup);
+  text-align: right;
+}
+
+.info-list dd {
+  margin: 0;
+}
+
+.detail section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--warna-garis);
+  text-align: center;
+}
+
+.detail-footer .button {
+  margin: 0.25rem;
+}
+
+/* 9. Halaman Daftar Bengkel ----------------------------------------------- */
+.workshop h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--warna-utama-gelap);
+}
+
+.workshop h3 {
+  text-align: left;
+  font-size: 0.9375rem;
+  margin: 1rem 0 0.4rem;
+}
+
+.address .label {
+  font-weight: 600;
+}
+
+.service-title {
+  padding-left: 0.6rem;
+  border-left: 4px solid var(--warna-garis);
+}
+
+.service-konvensional {
+  border-left-color: var(--warna-konvensional);
+  color: var(--warna-konvensional);
+}
+
+.service-listrik {
+  border-left-color: var(--warna-listrik);
+  color: var(--warna-listrik);
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.service-list li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--warna-garis);
+  border-radius: 999px;
+  background-color: #f8fafd;
+  font-size: 0.8125rem;
+}
+
+.card-action {
+  margin-top: auto; /* tombol selalu di bawah kartu */
+  padding-top: 0.75rem;
+  text-align: center;
+}
+
+.card-action .button {
+  width: 100%;
+}
+
+/* 10. Responsive --------------------------------------------------------- */
+
+/* Tablet: header bertumpuk, booking satu kolom */
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .figure-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .figure-pair figcaption {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile: navigasi berubah dari horizontal menjadi vertikal */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .brand {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .tagline {
+    max-width: none;
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* menu disusun vertikal */
+    gap: 0;
+    border: 1px solid var(--warna-garis);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .main-nav li + li {
+    border-top: 1px solid var(--warna-garis);
+  }
+
+  .main-nav a {
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1875rem;
+  }
+
+  .panel {
+    padding: 1.1rem;
+  }
+
+  /* Label formulir pindah ke atas input dan rata kiri */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row label {
+    text-align: left;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .button {
+    width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-wide {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.875rem;
+  }
+
+  .info-list {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .info-list dt {
+    text-align: left;
+  }
+
+  .info-list dd {
+    margin-bottom: 0.5rem;
+  }
+
+  .figure-pair {
+    grid-template-columns: 1fr;
+  }
+}

@@ -5,202 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bengkelin - riwayat dan jadwal servis motor konvensional dan motor listrik.">
     <title>Beranda - Riwayat &amp; Jadwal Servis | Bengkelin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <a href="#konten-utama">Langsung ke konten utama</a>
+    <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
 
-    <header>
-      <a href="index.html">
-        <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" width="200" height="60">
-      </a>
-      <p><strong>Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.</p>
-      <nav aria-label="Navigasi utama">
-        <ul>
-          <li><a href="index.html" aria-current="page">Beranda</a></li>
-          <li><a href="booking.html">Booking Servis</a></li>
-          <li><a href="detail.html">Detail Servis</a></li>
-          <li><a href="bengkel.html">Daftar Bengkel</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" width="200" height="60">
+          </a>
+          <p class="tagline"><strong>Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.</p>
+        </div>
+        <nav aria-label="Navigasi utama" class="main-nav">
+          <ul>
+            <li><a href="index.html" aria-current="page">Beranda</a></li>
+            <li><a href="booking.html">Booking Servis</a></li>
+            <li><a href="detail.html">Detail Servis</a></li>
+            <li><a href="bengkel.html">Daftar Bengkel</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main id="konten-utama">
-      <h1>Riwayat &amp; Jadwal Servis</h1>
-      <p>
-        Selamat datang di <strong>Bengkelin</strong>. Di halaman ini Anda dapat melihat pengingat servis
-        berikutnya, riwayat booking servis, dan daftar kendaraan yang sudah terdaftar. Bengkelin melayani
-        <em>motor konvensional (bensin)</em> maupun <em>motor listrik</em>.
-      </p>
-      <p><a href="booking.html">+ Buat booking servis baru</a></p>
+    <main id="konten-utama" class="container">
+      <div class="page-intro">
+        <h1>Riwayat &amp; Jadwal Servis</h1>
+        <p>
+          Selamat datang di <strong>Bengkelin</strong>. Di halaman ini Anda dapat melihat pengingat servis
+          berikutnya, riwayat booking servis, dan daftar kendaraan yang sudah terdaftar. Bengkelin melayani
+          <em>motor konvensional (bensin)</em> maupun <em>motor listrik</em>.
+        </p>
+        <p><a href="booking.html" class="button">+ Buat booking servis baru</a></p>
+      </div>
 
-      <section aria-labelledby="judul-pengingat">
+      <section aria-labelledby="judul-pengingat" class="panel panel-highlight">
         <h2 id="judul-pengingat">Pengingat Servis Berikutnya</h2>
         <p>Kendaraan berikut akan segera memasuki jadwal servis berkala:</p>
-        <ul>
+        <ul class="reminder-list">
           <li>
-            <strong>Gesits G1 (B 6012 ZLS)</strong> - Listrik: servis berkala motor listrik pada
+            <strong>Gesits G1 (B 6012 ZLS)</strong> <span class="tag tag-listrik">Listrik</span> servis berkala motor listrik pada
             <time datetime="2026-10-03">3 Oktober 2026</time> (sudah dibooking).
           </li>
           <li>
-            <strong>Yamaha NMAX 155 (D 3187 ABF)</strong> - Konvensional: ganti oli mesin pada
+            <strong>Yamaha NMAX 155 (D 3187 ABF)</strong> <span class="tag tag-konvensional">Konvensional</span> ganti oli mesin pada
             <time datetime="2026-10-18">18 Oktober 2026</time> atau saat mencapai 14.500 km.
           </li>
           <li>
-            <strong>Alva One (B 7719 EVA)</strong> - Listrik: pengecekan baterai dan kelistrikan pada
+            <strong>Alva One (B 7719 EVA)</strong> <span class="tag tag-listrik">Listrik</span> pengecekan baterai dan kelistrikan pada
             <time datetime="2026-10-22">22 Oktober 2026</time> atau saat mencapai 9.250 km.
           </li>
           <li>
-            <strong>Honda Vario 125 (B 4521 KJT)</strong> - Konvensional: ganti oli mesin pada
+            <strong>Honda Vario 125 (B 4521 KJT)</strong> <span class="tag tag-konvensional">Konvensional</span> ganti oli mesin pada
             <time datetime="2026-11-14">14 November 2026</time> atau saat mencapai 18.000 km.
           </li>
         </ul>
       </section>
 
-      <section aria-labelledby="judul-riwayat">
+      <section aria-labelledby="judul-riwayat" class="panel">
         <h2 id="judul-riwayat">Riwayat Booking Servis</h2>
-        <table>
-          <caption>Daftar booking dan riwayat servis kendaraan Anda tahun 2026</caption>
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Tanggal</th>
-              <th scope="col">Kendaraan</th>
-              <th scope="col">Jenis Motor</th>
-              <th scope="col">Bengkel</th>
-              <th scope="col">Layanan</th>
-              <th scope="col">Biaya</th>
-              <th scope="col">Status</th>
-              <th scope="col">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td><time datetime="2026-01-12">12 Januari 2026</time></td>
-              <td>Honda Vario 125 (B 4521 KJT)</td>
-              <td>Konvensional</td>
-              <td>Bengkel Sinar Roda</td>
-              <td>Ganti Oli Mesin</td>
-              <td>Rp75.000</td>
-              <td>Selesai</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 1">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 1">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td><time datetime="2026-03-03">3 Maret 2026</time></td>
-              <td>Gesits G1 (B 6012 ZLS)</td>
-              <td>Listrik</td>
-              <td>Bengkel Volta Mandiri</td>
-              <td>Pengecekan Baterai</td>
-              <td>Rp100.000</td>
-              <td>Selesai</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 2">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 2">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td><time datetime="2026-05-18">18 Mei 2026</time></td>
-              <td>Yamaha NMAX 155 (D 3187 ABF)</td>
-              <td>Konvensional</td>
-              <td>Bengkel Karya Piston</td>
-              <td>Tune Up</td>
-              <td>Rp150.000</td>
-              <td>Selesai</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 3">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 3">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td><time datetime="2026-07-22">22 Juli 2026</time></td>
-              <td>Alva One (B 7719 EVA)</td>
-              <td>Listrik</td>
-              <td>Bengkel Volta Mandiri</td>
-              <td>Servis Sistem Kelistrikan</td>
-              <td>Rp200.000</td>
-              <td>Selesai</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 4">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 4">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td><time datetime="2026-09-14">14 September 2026</time></td>
-              <td>Honda Vario 125 (B 4521 KJT)</td>
-              <td>Konvensional</td>
-              <td>Bengkel Sinar Roda</td>
-              <td>Servis Rutin</td>
-              <td>Rp185.000</td>
-              <td>Selesai</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 5">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 5">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td><time datetime="2026-10-03">3 Oktober 2026</time></td>
-              <td>Gesits G1 (B 6012 ZLS)</td>
-              <td>Listrik</td>
-              <td>Bengkel Arus Dua Roda</td>
-              <td>Servis Berkala Motor Listrik</td>
-              <td>Rp150.000</td>
-              <td>Dijadwalkan</td>
-              <td>
-                <a href="detail.html" aria-label="Detail booking nomor 6">Detail</a>
-                <a href="booking.html" aria-label="Edit booking nomor 6">Edit</a>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row" colspan="6">Total biaya servis yang sudah selesai</th>
-              <td colspan="3">Rp710.000</td>
-            </tr>
-          </tfoot>
-        </table>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <caption>Daftar booking dan riwayat servis kendaraan Anda tahun 2026</caption>
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Kendaraan</th>
+                <th scope="col">Jenis Motor</th>
+                <th scope="col">Bengkel</th>
+                <th scope="col">Layanan</th>
+                <th scope="col" class="num">Biaya</th>
+                <th scope="col">Status</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td><time datetime="2026-01-12">12 Januari 2026</time></td>
+                <td>Honda Vario 125 (B 4521 KJT)</td>
+                <td><span class="tag tag-konvensional">Konvensional</span></td>
+                <td>Bengkel Sinar Roda</td>
+                <td>Ganti Oli Mesin</td>
+                <td class="num">Rp75.000</td>
+                <td><span class="badge badge-selesai">Selesai</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 1">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 1">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td><time datetime="2026-03-03">3 Maret 2026</time></td>
+                <td>Gesits G1 (B 6012 ZLS)</td>
+                <td><span class="tag tag-listrik">Listrik</span></td>
+                <td>Bengkel Volta Mandiri</td>
+                <td>Pengecekan Baterai</td>
+                <td class="num">Rp100.000</td>
+                <td><span class="badge badge-selesai">Selesai</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 2">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 2">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td><time datetime="2026-05-18">18 Mei 2026</time></td>
+                <td>Yamaha NMAX 155 (D 3187 ABF)</td>
+                <td><span class="tag tag-konvensional">Konvensional</span></td>
+                <td>Bengkel Karya Piston</td>
+                <td>Tune Up</td>
+                <td class="num">Rp150.000</td>
+                <td><span class="badge badge-selesai">Selesai</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 3">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 3">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td><time datetime="2026-07-22">22 Juli 2026</time></td>
+                <td>Alva One (B 7719 EVA)</td>
+                <td><span class="tag tag-listrik">Listrik</span></td>
+                <td>Bengkel Volta Mandiri</td>
+                <td>Servis Sistem Kelistrikan</td>
+                <td class="num">Rp200.000</td>
+                <td><span class="badge badge-selesai">Selesai</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 4">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 4">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td><time datetime="2026-09-14">14 September 2026</time></td>
+                <td>Honda Vario 125 (B 4521 KJT)</td>
+                <td><span class="tag tag-konvensional">Konvensional</span></td>
+                <td>Bengkel Sinar Roda</td>
+                <td>Servis Rutin</td>
+                <td class="num">Rp185.000</td>
+                <td><span class="badge badge-selesai">Selesai</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 5">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 5">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td><time datetime="2026-10-03">3 Oktober 2026</time></td>
+                <td>Gesits G1 (B 6012 ZLS)</td>
+                <td><span class="tag tag-listrik">Listrik</span></td>
+                <td>Bengkel Arus Dua Roda</td>
+                <td>Servis Berkala Motor Listrik</td>
+                <td class="num">Rp150.000</td>
+                <td><span class="badge badge-dijadwalkan">Dijadwalkan</span></td>
+                <td class="actions">
+                  <a href="detail.html" aria-label="Detail booking nomor 6">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 6">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="6">Total biaya servis yang sudah selesai</th>
+                <td colspan="3" class="total">Rp710.000</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
       </section>
 
-      <section aria-labelledby="judul-kendaraan">
+      <section aria-labelledby="judul-kendaraan" class="panel">
         <h2 id="judul-kendaraan">Kendaraan Saya</h2>
+        <div class="card-grid">
 
-        <article>
-          <h3>Honda Vario 125</h3>
-          <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Honda Vario 125" width="160" height="100">
-          <p>Jenis motor: Konvensional (bensin). Plat nomor: B 4521 KJT. Tahun: 2021. Kilometer: 16.020 km.</p>
-          <p>Servis terakhir: <time datetime="2026-09-14">14 September 2026</time> (Servis Rutin).</p>
-        </article>
+          <article class="card">
+            <h3>Honda Vario 125</h3>
+            <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Honda Vario 125" width="160" height="100">
+            <p>Jenis motor: Konvensional (bensin). Plat nomor: B 4521 KJT. Tahun: 2021. Kilometer: 16.020 km.</p>
+            <p>Servis terakhir: <time datetime="2026-09-14">14 September 2026</time> (Servis Rutin).</p>
+          </article>
 
-        <article>
-          <h3>Yamaha NMAX 155</h3>
-          <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Yamaha NMAX 155" width="160" height="100">
-          <p>Jenis motor: Konvensional (bensin). Plat nomor: D 3187 ABF. Tahun: 2022. Kilometer: 12.300 km.</p>
-          <p>Servis terakhir: <time datetime="2026-05-18">18 Mei 2026</time> (Tune Up).</p>
-        </article>
+          <article class="card">
+            <h3>Yamaha NMAX 155</h3>
+            <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Yamaha NMAX 155" width="160" height="100">
+            <p>Jenis motor: Konvensional (bensin). Plat nomor: D 3187 ABF. Tahun: 2022. Kilometer: 12.300 km.</p>
+            <p>Servis terakhir: <time datetime="2026-05-18">18 Mei 2026</time> (Tune Up).</p>
+          </article>
 
-        <article>
-          <h3>Gesits G1</h3>
-          <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Gesits G1" width="160" height="100">
-          <p>Jenis motor: Listrik. Plat nomor: B 6012 ZLS. Tahun: 2023. Kilometer: 5.480 km.</p>
-          <p>Servis terakhir: <time datetime="2026-03-03">3 Maret 2026</time> (Pengecekan Baterai).</p>
-        </article>
+          <article class="card">
+            <h3>Gesits G1</h3>
+            <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Gesits G1" width="160" height="100">
+            <p>Jenis motor: Listrik. Plat nomor: B 6012 ZLS. Tahun: 2023. Kilometer: 5.480 km.</p>
+            <p>Servis terakhir: <time datetime="2026-03-03">3 Maret 2026</time> (Pengecekan Baterai).</p>
+          </article>
 
-        <article>
-          <h3>Alva One</h3>
-          <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Alva One" width="160" height="100">
-          <p>Jenis motor: Listrik. Plat nomor: B 7719 EVA. Tahun: 2024. Kilometer: 6.250 km.</p>
-          <p>Servis terakhir: <time datetime="2026-07-22">22 Juli 2026</time> (Servis Sistem Kelistrikan).</p>
-        </article>
+          <article class="card">
+            <h3>Alva One</h3>
+            <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Alva One" width="160" height="100">
+            <p>Jenis motor: Listrik. Plat nomor: B 7719 EVA. Tahun: 2024. Kilometer: 6.250 km.</p>
+            <p>Servis terakhir: <time datetime="2026-07-22">22 Juli 2026</time> (Servis Sistem Kelistrikan).</p>
+          </article>
+        </div>
       </section>
 
-      <aside aria-labelledby="judul-tips">
+      <aside aria-labelledby="judul-tips" class="panel callout">
         <h2 id="judul-tips">Tips Perawatan</h2>
         <ul>
           <li>Motor konvensional: ganti oli mesin setiap 2.000 - 3.000 km atau sesuai buku manual.</li>
@@ -209,9 +220,11 @@
       </aside>
     </main>
 
-    <footer>
-      <p><small>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</small></p>
-      <p>Dibuat oleh: Thoriq - 103022430006</p>
+    <footer class="site-footer">
+      <div class="container">
+        <p><small>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</small></p>
+        <p>Dibuat oleh: <span class="author">Thoriq - 103022430006</span></p>
+      </div>
     </footer>
   </body>
 </html>
