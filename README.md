@@ -5,7 +5,7 @@ catatan:
 4. integrasi mungkin nanti dockumennya di buatkan prd,brd,srs dan frs biar lebih jelas arah aplikasinya kemana dan bisa dikerjian dengan vibe koding ketika sudah di week atas, sekarang masih belum full vibe koding
 
 
-tugas buat week 3 done!!!!!
+tugas buat week 4 done!!!!! (Migrasi ke Tailwind CSS skeleton selesai)
 
 
 AI usage:
@@ -19,6 +19,58 @@ Bengkelin adalah aplikasi web untuk memesan jadwal servis di bengkel motor, baik
 - **Nama Lengkap:** Thoriq
 - **NIM:** 103022430006
 - **Mata Kuliah:** Pemrograman Web Fullstack
+
+## Tugas Pekan 4 - Frontend Skeleton (Tailwind CSS)
+
+Pada pekan ini, tampilan aplikasi **Bengkelin** diperbarui menjadi **Tailwind CSS** sebagai kerangka tampilan (*frontend skeleton*). Semua 4 halaman (`index.html`, `booking.html`, `detail.html`, dan `bengkel.html`) direfaktor menggunakan utility classes Tailwind CSS serta script interaktif sederhana untuk menu navigasi responsif di mobile (`assets/js/main.js`).
+
+### Alasan Pemilihan Tailwind CSS
+
+Untuk proyek Bengkelin, saya memilih **Tailwind CSS** dibanding Bootstrap dengan alasan:
+
+1. **Fleksibilitas Desain & Kustomisasi Komponen**: Bengkelin memiliki identitas visual yang khas, terutama pembedaan yang jelas antara **motor konvensional** (aksen oranye) dan **motor listrik** (aksen hijau/emerald), serta warna biru utama dari logo. Dengan Tailwind, kustomisasi palet warna, badge status servis, dan kartu bengkel jauh lebih fleksibel tanpa harus menimpa style bawaan komponen.
+2. **Utility-First & Kontrol Responsif Presisi**: Tailwind memudahkan pengaturan breakpoint secara langsung di elemen HTML (`sm:`, `md:`, `lg:`). Misalnya, form booking langsung diubah menjadi 2 kolom di desktop (`lg:grid-cols-3`) dan 1 kolom di mobile secara ringkas dan rapi.
+3. **Ringan & Cocok untuk Skeleton Proyek Fullstack**: Menggunakan Tailwind via CDN dengan konfigurasi tema sederhana membuat struktur skeleton tetap mandiri (*zero-dependency* tanpa harus setup build tooling yang rumit di awal semester), namun siap dilanjutkan ke tahap integrasi JavaScript dan framework frontend pada pekan-pekan berikutnya.
+
+### Penerapan Komponen & Responsivitas
+
+- **Navigasi Responsif**: Pada desktop, navbar tampil horizontal dengan menu navigasi yang rapi. Pada mobile, tersedia tombol hamburger interaktif (toggle) yang memunculkan menu dropdown.
+- **Halaman Utama / Dashboard (`index.html`)**: Memanfaatkan layout grid dan flex untuk kartu hero sambutan, kartu pengingat servis beraksen khusus, tabel riwayat servis dengan wrapper `overflow-x-auto` (sehingga aman digeser di mobile), dan grid 4-kolom untuk kendaraan saya.
+- **Halaman Form (`booking.html`)**: Formulir booking servis dengan fieldset terstruktur, selector radio jenis motor, input tanggal/jam, serta focus ring yang jelas saat pengguna mengisi form.
+- **Halaman Detail Servis (`detail.html`)**: Breadcrumb navigasi, card header dengan status badge, dan info grid 2-kolom (informasi kendaraan dan servis) serta tabel rincian biaya.
+- **Halaman Daftar Bengkel (`bengkel.html`)**: Grid kartu mitra bengkel (`grid-cols-1 md:grid-cols-2`) lengkap dengan badge daftar layanan dan tombol langsung menuju booking.
+
+### Screenshot Pekan 4 (Desktop dan Mobile)
+
+Pengujian responsif dilakukan pada 2 ukuran layar:
+- **Desktop**: 1366 × 768 piksel
+- **Mobile**: 390 × 844 piksel (iPhone scale @2x)
+
+Semua berkas screenshot disimpan di folder `docs/screenshots/pekan-4/`.
+
+#### 1. Beranda / Dashboard (`index.html`)
+
+| Desktop (1366px) | Mobile (390px) |
+| --- | --- |
+| ![Beranda Desktop](docs/screenshots/pekan-4/01-beranda-desktop.png) | ![Beranda Mobile](docs/screenshots/pekan-4/01-beranda-mobile.png) |
+
+#### 2. Form Booking Servis (`booking.html`)
+
+| Desktop (1366px) | Mobile (390px) |
+| --- | --- |
+| ![Booking Desktop](docs/screenshots/pekan-4/02-booking-desktop.png) | ![Booking Mobile](docs/screenshots/pekan-4/02-booking-mobile.png) |
+
+#### 3. Detail Servis (`detail.html`)
+
+| Desktop (1366px) | Mobile (390px) |
+| --- | --- |
+| ![Detail Servis Desktop](docs/screenshots/pekan-4/03-detail-desktop.png) | ![Detail Servis Mobile](docs/screenshots/pekan-4/03-detail-mobile.png) |
+
+#### 4. Daftar Bengkel Mitra (`bengkel.html`)
+
+| Desktop (1366px) | Mobile (390px) |
+| --- | --- |
+| ![Daftar Bengkel Desktop](docs/screenshots/pekan-4/04-daftar-bengkel-desktop.png) | ![Daftar Bengkel Mobile](docs/screenshots/pekan-4/04-daftar-bengkel-mobile.png) |
 
 ## Tugas Pekan 3 - CSS Native
 
@@ -128,17 +180,19 @@ bengkelin/
 │   │   ├── motor-konvensional.svg
 │   │   └── motor-listrik.svg
 │   └── js/
-│       └── .gitkeep
+│       ├── .gitkeep
+│       └── main.js             # script toggle navigasi mobile
 └── docs/
     └── screenshots/
         ├── 01-beranda.png
         ├── 02-booking.png
         ├── 03-detail.png
         ├── 04-daftar-bengkel.png
-        └── pekan-3/            # screenshot desktop & mobile (Pekan 3)
+        ├── pekan-3/            # screenshot desktop & mobile (Pekan 3)
+        └── pekan-4/            # screenshot desktop & mobile (Pekan 4)
 ```
 
-Folder `assets/css/` berisi stylesheet Pekan 3; folder `assets/js/` masih kosong untuk pekan berikutnya. File `.htmlvalidate.json` adalah konfigurasi kecil untuk validator HTML (`html-validate`).
+Folder `assets/css/` berisi stylesheet Pekan 3; folder `assets/js/` berisi `main.js` untuk interaksi toggle navigasi pada layar mobile. File `.htmlvalidate.json` adalah konfigurasi kecil untuk validator HTML (`html-validate`).
 
 ## Penerapan Semantic HTML5
 

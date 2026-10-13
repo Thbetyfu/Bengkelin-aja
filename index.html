@@ -5,226 +5,382 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bengkelin - riwayat dan jadwal servis motor konvensional dan motor listrik.">
     <title>Beranda - Riwayat &amp; Jadwal Servis | Bengkelin</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#1f6feb',
+                dark: '#1550b8',
+                light: '#e8f0fe',
+              },
+              aksen: '#ffd33d',
+              konvensional: '#c2410c',
+              listrik: '#047857',
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
-    <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
+  <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between antialiased overflow-x-hidden">
+    <!-- Aksesibilitas skip-link -->
+    <a href="#konten-utama" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-md focus:shadow-md">
+      Langsung ke konten utama
+    </a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <a href="index.html" class="brand-logo">
-            <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" width="200" height="60">
-          </a>
-          <p class="tagline"><strong>Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.</p>
+    <!-- Header & Navigasi Responsif -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          
+          <!-- Logo & Tagline -->
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="flex-shrink-0">
+              <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" class="h-10 sm:h-12 w-auto">
+            </a>
+            <p class="hidden lg:block text-xs text-gray-500 border-l border-gray-200 pl-4 py-1 max-w-xs leading-snug">
+              <strong class="text-gray-700">Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.
+            </p>
+          </div>
+
+          <!-- Navigasi Desktop -->
+          <nav aria-label="Navigasi utama" class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <a href="index.html" aria-current="page" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand bg-blue-50">
+              Beranda
+            </a>
+            <a href="booking.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Booking Servis
+            </a>
+            <a href="detail.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Detail Servis
+            </a>
+            <a href="bengkel.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Daftar Bengkel
+            </a>
+          </nav>
+
+          <!-- Tombol Hamburger Mobile -->
+          <div class="flex md:hidden">
+            <button id="menu-btn" type="button" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Buka menu navigasi" aria-expanded="false">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
         </div>
-        <nav aria-label="Navigasi utama" class="main-nav">
-          <ul>
-            <li><a href="index.html" aria-current="page">Beranda</a></li>
-            <li><a href="booking.html">Booking Servis</a></li>
-            <li><a href="detail.html">Detail Servis</a></li>
-            <li><a href="bengkel.html">Daftar Bengkel</a></li>
-          </ul>
-        </nav>
       </div>
+
+      <!-- Menu Dropdown Mobile -->
+      <nav id="mobile-menu" aria-label="Navigasi mobile" class="hidden md:hidden border-t border-gray-200 bg-white px-4 pt-2 pb-4 space-y-1 shadow-lg">
+        <a href="index.html" aria-current="page" class="block px-3 py-2 rounded-md text-base font-semibold text-brand bg-blue-50">
+          Beranda
+        </a>
+        <a href="booking.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Booking Servis
+        </a>
+        <a href="detail.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Detail Servis
+        </a>
+        <a href="bengkel.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Daftar Bengkel
+        </a>
+      </nav>
     </header>
 
-    <main id="konten-utama" class="container">
-      <div class="page-intro">
-        <h1>Riwayat &amp; Jadwal Servis</h1>
-        <p>
-          Selamat datang di <strong>Bengkelin</strong>. Di halaman ini Anda dapat melihat pengingat servis
-          berikutnya, riwayat booking servis, dan daftar kendaraan yang sudah terdaftar. Bengkelin melayani
-          <em>motor konvensional (bensin)</em> maupun <em>motor listrik</em>.
-        </p>
-        <p><a href="booking.html" class="button">+ Buat booking servis baru</a></p>
+    <!-- Konten Utama -->
+    <main id="konten-utama" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 min-w-0 space-y-8">
+      
+      <!-- Page Intro / Hero Box -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="max-w-2xl">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight mb-2">Riwayat &amp; Jadwal Servis</h1>
+          <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+            Selamat datang di <strong>Bengkelin</strong>. Di halaman ini Anda dapat melihat pengingat servis
+            berikutnya, riwayat booking servis, dan daftar kendaraan yang sudah terdaftar. Bengkelin melayani
+            <em class="text-gray-800">motor konvensional (bensin)</em> maupun <em class="text-gray-800">motor listrik</em>.
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <a href="booking.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-lg shadow-sm transition">
+            + Buat booking servis baru
+          </a>
+        </div>
       </div>
 
-      <section aria-labelledby="judul-pengingat" class="panel panel-highlight">
-        <h2 id="judul-pengingat">Pengingat Servis Berikutnya</h2>
-        <p>Kendaraan berikut akan segera memasuki jadwal servis berkala:</p>
-        <ul class="reminder-list">
-          <li>
-            <strong>Gesits G1 (B 6012 ZLS)</strong> <span class="tag tag-listrik">Listrik</span> servis berkala motor listrik pada
-            <time datetime="2026-10-03">3 Oktober 2026</time> (sudah dibooking).
+      <!-- Section Pengingat Servis Berikutnya -->
+      <section aria-labelledby="judul-pengingat" class="bg-amber-50/70 border border-amber-200 rounded-xl p-6 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="p-1.5 bg-amber-100 text-amber-800 rounded-md">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          <h2 id="judul-pengingat" class="text-lg sm:text-xl font-bold text-amber-900">Pengingat Servis Berikutnya</h2>
+        </div>
+        <p class="text-sm text-amber-800 mb-4">Kendaraan berikut akan segera memasuki jadwal servis berkala:</p>
+        
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <li class="bg-white/90 border border-amber-100 rounded-lg p-3.5 shadow-xs flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <strong class="text-gray-900">Gesits G1 (B 6012 ZLS)</strong>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800">Listrik</span>
+            </div>
+            <p class="text-gray-600 text-xs sm:text-sm">
+              Servis berkala motor listrik pada <time datetime="2026-10-03" class="font-medium text-gray-800">3 Oktober 2026</time> <span class="text-emerald-700 font-medium">(sudah dibooking)</span>.
+            </p>
           </li>
-          <li>
-            <strong>Yamaha NMAX 155 (D 3187 ABF)</strong> <span class="tag tag-konvensional">Konvensional</span> ganti oli mesin pada
-            <time datetime="2026-10-18">18 Oktober 2026</time> atau saat mencapai 14.500 km.
+          <li class="bg-white/90 border border-amber-100 rounded-lg p-3.5 shadow-xs flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <strong class="text-gray-900">Yamaha NMAX 155 (D 3187 ABF)</strong>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-800">Konvensional</span>
+            </div>
+            <p class="text-gray-600 text-xs sm:text-sm">
+              Ganti oli mesin pada <time datetime="2026-10-18" class="font-medium text-gray-800">18 Oktober 2026</time> atau saat mencapai 14.500 km.
+            </p>
           </li>
-          <li>
-            <strong>Alva One (B 7719 EVA)</strong> <span class="tag tag-listrik">Listrik</span> pengecekan baterai dan kelistrikan pada
-            <time datetime="2026-10-22">22 Oktober 2026</time> atau saat mencapai 9.250 km.
+          <li class="bg-white/90 border border-amber-100 rounded-lg p-3.5 shadow-xs flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <strong class="text-gray-900">Alva One (B 7719 EVA)</strong>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800">Listrik</span>
+            </div>
+            <p class="text-gray-600 text-xs sm:text-sm">
+              Pengecekan baterai &amp; kelistrikan pada <time datetime="2026-10-22" class="font-medium text-gray-800">22 Oktober 2026</time> atau saat mencapai 9.250 km.
+            </p>
           </li>
-          <li>
-            <strong>Honda Vario 125 (B 4521 KJT)</strong> <span class="tag tag-konvensional">Konvensional</span> ganti oli mesin pada
-            <time datetime="2026-11-14">14 November 2026</time> atau saat mencapai 18.000 km.
+          <li class="bg-white/90 border border-amber-100 rounded-lg p-3.5 shadow-xs flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <strong class="text-gray-900">Honda Vario 125 (B 4521 KJT)</strong>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-800">Konvensional</span>
+            </div>
+            <p class="text-gray-600 text-xs sm:text-sm">
+              Ganti oli mesin pada <time datetime="2026-11-14" class="font-medium text-gray-800">14 November 2026</time> atau saat mencapai 18.000 km.
+            </p>
           </li>
         </ul>
       </section>
 
-      <section aria-labelledby="judul-riwayat" class="panel">
-        <h2 id="judul-riwayat">Riwayat Booking Servis</h2>
-        <div class="table-wrapper">
-          <table class="data-table">
-            <caption>Daftar booking dan riwayat servis kendaraan Anda tahun 2026</caption>
-            <thead>
+      <!-- Section Riwayat Booking Servis (Tabel Data Responsif) -->
+      <section aria-labelledby="judul-riwayat" class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 sm:p-6 lg:p-8 overflow-hidden">
+        <div class="mb-4">
+          <h2 id="judul-riwayat" class="text-xl font-bold text-gray-900">Riwayat Booking Servis</h2>
+          <p class="text-sm text-gray-500 mt-1">Daftar booking dan riwayat servis kendaraan Anda tahun 2026</p>
+        </div>
+
+        <div class="overflow-x-auto w-full rounded-lg border border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 text-sm text-left">
+            <caption class="sr-only">Daftar booking dan riwayat servis kendaraan Anda tahun 2026</caption>
+            <thead class="bg-gray-50 text-gray-700 font-semibold text-xs uppercase tracking-wider">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Tanggal</th>
-                <th scope="col">Kendaraan</th>
-                <th scope="col">Jenis Motor</th>
-                <th scope="col">Bengkel</th>
-                <th scope="col">Layanan</th>
-                <th scope="col" class="num">Biaya</th>
-                <th scope="col">Status</th>
-                <th scope="col">Aksi</th>
+                <th scope="col" class="px-4 py-3 text-center">No</th>
+                <th scope="col" class="px-4 py-3">Tanggal</th>
+                <th scope="col" class="px-4 py-3">Kendaraan</th>
+                <th scope="col" class="px-4 py-3">Jenis Motor</th>
+                <th scope="col" class="px-4 py-3">Bengkel</th>
+                <th scope="col" class="px-4 py-3">Layanan</th>
+                <th scope="col" class="px-4 py-3 text-right">Biaya</th>
+                <th scope="col" class="px-4 py-3 text-center">Status</th>
+                <th scope="col" class="px-4 py-3 text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td><time datetime="2026-01-12">12 Januari 2026</time></td>
-                <td>Honda Vario 125 (B 4521 KJT)</td>
-                <td><span class="tag tag-konvensional">Konvensional</span></td>
-                <td>Bengkel Sinar Roda</td>
-                <td>Ganti Oli Mesin</td>
-                <td class="num">Rp75.000</td>
-                <td><span class="badge badge-selesai">Selesai</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 1">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 1">Edit</a>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">1</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-01-12">12 Januari 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Honda Vario 125 (B 4521 KJT)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">Konvensional</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Sinar Roda</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Ganti Oli Mesin</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp75.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Selesai</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 1" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 1" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td><time datetime="2026-03-03">3 Maret 2026</time></td>
-                <td>Gesits G1 (B 6012 ZLS)</td>
-                <td><span class="tag tag-listrik">Listrik</span></td>
-                <td>Bengkel Volta Mandiri</td>
-                <td>Pengecekan Baterai</td>
-                <td class="num">Rp100.000</td>
-                <td><span class="badge badge-selesai">Selesai</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 2">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 2">Edit</a>
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">2</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-03-03">3 Maret 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Gesits G1 (B 6012 ZLS)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">Listrik</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Volta Mandiri</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Pengecekan Baterai</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp100.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Selesai</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 2" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 2" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td><time datetime="2026-05-18">18 Mei 2026</time></td>
-                <td>Yamaha NMAX 155 (D 3187 ABF)</td>
-                <td><span class="tag tag-konvensional">Konvensional</span></td>
-                <td>Bengkel Karya Piston</td>
-                <td>Tune Up</td>
-                <td class="num">Rp150.000</td>
-                <td><span class="badge badge-selesai">Selesai</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 3">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 3">Edit</a>
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">3</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-05-18">18 Mei 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Yamaha NMAX 155 (D 3187 ABF)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">Konvensional</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Karya Piston</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Tune Up</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp150.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Selesai</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 3" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 3" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td><time datetime="2026-07-22">22 Juli 2026</time></td>
-                <td>Alva One (B 7719 EVA)</td>
-                <td><span class="tag tag-listrik">Listrik</span></td>
-                <td>Bengkel Volta Mandiri</td>
-                <td>Servis Sistem Kelistrikan</td>
-                <td class="num">Rp200.000</td>
-                <td><span class="badge badge-selesai">Selesai</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 4">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 4">Edit</a>
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">4</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-07-22">22 Juli 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Alva One (B 7719 EVA)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">Listrik</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Volta Mandiri</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Servis Sistem Kelistrikan</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp200.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Selesai</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 4" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 4" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td><time datetime="2026-09-14">14 September 2026</time></td>
-                <td>Honda Vario 125 (B 4521 KJT)</td>
-                <td><span class="tag tag-konvensional">Konvensional</span></td>
-                <td>Bengkel Sinar Roda</td>
-                <td>Servis Rutin</td>
-                <td class="num">Rp185.000</td>
-                <td><span class="badge badge-selesai">Selesai</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 5">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 5">Edit</a>
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">5</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-09-14">14 September 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Honda Vario 125 (B 4521 KJT)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">Konvensional</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Sinar Roda</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Servis Rutin</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp185.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Selesai</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 5" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 5" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td><time datetime="2026-10-03">3 Oktober 2026</time></td>
-                <td>Gesits G1 (B 6012 ZLS)</td>
-                <td><span class="tag tag-listrik">Listrik</span></td>
-                <td>Bengkel Arus Dua Roda</td>
-                <td>Servis Berkala Motor Listrik</td>
-                <td class="num">Rp150.000</td>
-                <td><span class="badge badge-dijadwalkan">Dijadwalkan</span></td>
-                <td class="actions">
-                  <a href="detail.html" aria-label="Detail booking nomor 6">Detail</a>
-                  <a href="booking.html" aria-label="Edit booking nomor 6">Edit</a>
+              <tr class="hover:bg-gray-50 transition">
+                <th scope="row" class="px-4 py-3 text-center font-medium text-gray-500">6</th>
+                <td class="px-4 py-3 whitespace-nowrap"><time datetime="2026-10-03">3 Oktober 2026</time></td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">Gesits G1 (B 6012 ZLS)</td>
+                <td class="px-4 py-3 whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">Listrik</span></td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Bengkel Arus Dua Roda</td>
+                <td class="px-4 py-3 whitespace-nowrap text-gray-600">Servis Berkala Motor Listrik</td>
+                <td class="px-4 py-3 text-right font-medium text-gray-900 whitespace-nowrap">Rp150.000</td>
+                <td class="px-4 py-3 text-center whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Dijadwalkan</span></td>
+                <td class="px-4 py-3 text-center whitespace-nowrap space-x-2">
+                  <a href="detail.html" aria-label="Detail booking nomor 6" class="text-brand hover:text-brand-dark font-medium hover:underline">Detail</a>
+                  <a href="booking.html" aria-label="Edit booking nomor 6" class="text-gray-500 hover:text-gray-700 font-medium hover:underline">Edit</a>
                 </td>
               </tr>
             </tbody>
-            <tfoot>
+            <tfoot class="bg-gray-50 font-semibold text-gray-900">
               <tr>
-                <th scope="row" colspan="6">Total biaya servis yang sudah selesai</th>
-                <td colspan="3" class="total">Rp710.000</td>
+                <th scope="row" colspan="6" class="px-4 py-3.5 text-right">Total biaya servis yang sudah selesai</th>
+                <td colspan="3" class="px-4 py-3.5 font-bold text-brand-dark text-base">Rp710.000</td>
               </tr>
             </tfoot>
           </table>
         </div>
       </section>
 
-      <section aria-labelledby="judul-kendaraan" class="panel">
-        <h2 id="judul-kendaraan">Kendaraan Saya</h2>
-        <div class="card-grid">
+      <!-- Section Kendaraan Saya (Grid Responsif) -->
+      <section aria-labelledby="judul-kendaraan" class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
+        <div class="mb-6">
+          <h2 id="judul-kendaraan" class="text-xl font-bold text-gray-900">Kendaraan Saya</h2>
+          <p class="text-sm text-gray-500 mt-1">Daftar motor terdaftar di akun Anda</p>
+        </div>
 
-          <article class="card">
-            <h3>Honda Vario 125</h3>
-            <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Honda Vario 125" width="160" height="100">
-            <p>Jenis motor: Konvensional (bensin). Plat nomor: B 4521 KJT. Tahun: 2021. Kilometer: 16.020 km.</p>
-            <p>Servis terakhir: <time datetime="2026-09-14">14 September 2026</time> (Servis Rutin).</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1 -->
+          <article class="bg-white rounded-lg border border-gray-200 shadow-xs hover:shadow-md transition p-4 flex flex-col">
+            <h3 class="text-base font-bold text-gray-900 mb-2">Honda Vario 125</h3>
+            <div class="bg-gray-50 rounded-lg p-2 mb-3 flex items-center justify-center h-28">
+              <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Honda Vario 125" class="max-h-full w-auto">
+            </div>
+            <p class="text-xs text-gray-600 space-y-1 mb-3">
+              <span class="block"><span class="font-medium text-gray-700">Jenis:</span> Konvensional (bensin)</span>
+              <span class="block"><span class="font-medium text-gray-700">Plat:</span> B 4521 KJT</span>
+              <span class="block"><span class="font-medium text-gray-700">Tahun:</span> 2021 &bull; 16.020 km</span>
+            </p>
+            <p class="text-xs text-gray-500 mt-auto pt-2 border-t border-gray-100">
+              Servis terakhir: <time datetime="2026-09-14" class="font-medium text-gray-700">14 Sep 2026</time> (Servis Rutin)
+            </p>
           </article>
 
-          <article class="card">
-            <h3>Yamaha NMAX 155</h3>
-            <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Yamaha NMAX 155" width="160" height="100">
-            <p>Jenis motor: Konvensional (bensin). Plat nomor: D 3187 ABF. Tahun: 2022. Kilometer: 12.300 km.</p>
-            <p>Servis terakhir: <time datetime="2026-05-18">18 Mei 2026</time> (Tune Up).</p>
+          <!-- Card 2 -->
+          <article class="bg-white rounded-lg border border-gray-200 shadow-xs hover:shadow-md transition p-4 flex flex-col">
+            <h3 class="text-base font-bold text-gray-900 mb-2">Yamaha NMAX 155</h3>
+            <div class="bg-gray-50 rounded-lg p-2 mb-3 flex items-center justify-center h-28">
+              <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional bensin untuk Yamaha NMAX 155" class="max-h-full w-auto">
+            </div>
+            <p class="text-xs text-gray-600 space-y-1 mb-3">
+              <span class="block"><span class="font-medium text-gray-700">Jenis:</span> Konvensional (bensin)</span>
+              <span class="block"><span class="font-medium text-gray-700">Plat:</span> D 3187 ABF</span>
+              <span class="block"><span class="font-medium text-gray-700">Tahun:</span> 2022 &bull; 12.300 km</span>
+            </p>
+            <p class="text-xs text-gray-500 mt-auto pt-2 border-t border-gray-100">
+              Servis terakhir: <time datetime="2026-05-18" class="font-medium text-gray-700">18 Mei 2026</time> (Tune Up)
+            </p>
           </article>
 
-          <article class="card">
-            <h3>Gesits G1</h3>
-            <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Gesits G1" width="160" height="100">
-            <p>Jenis motor: Listrik. Plat nomor: B 6012 ZLS. Tahun: 2023. Kilometer: 5.480 km.</p>
-            <p>Servis terakhir: <time datetime="2026-03-03">3 Maret 2026</time> (Pengecekan Baterai).</p>
+          <!-- Card 3 -->
+          <article class="bg-white rounded-lg border border-gray-200 shadow-xs hover:shadow-md transition p-4 flex flex-col">
+            <h3 class="text-base font-bold text-gray-900 mb-2">Gesits G1</h3>
+            <div class="bg-gray-50 rounded-lg p-2 mb-3 flex items-center justify-center h-28">
+              <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Gesits G1" class="max-h-full w-auto">
+            </div>
+            <p class="text-xs text-gray-600 space-y-1 mb-3">
+              <span class="block"><span class="font-medium text-gray-700">Jenis:</span> Listrik</span>
+              <span class="block"><span class="font-medium text-gray-700">Plat:</span> B 6012 ZLS</span>
+              <span class="block"><span class="font-medium text-gray-700">Tahun:</span> 2023 &bull; 5.480 km</span>
+            </p>
+            <p class="text-xs text-gray-500 mt-auto pt-2 border-t border-gray-100">
+              Servis terakhir: <time datetime="2026-03-03" class="font-medium text-gray-700">3 Mar 2026</time> (Pengecekan Baterai)
+            </p>
           </article>
 
-          <article class="card">
-            <h3>Alva One</h3>
-            <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Alva One" width="160" height="100">
-            <p>Jenis motor: Listrik. Plat nomor: B 7719 EVA. Tahun: 2024. Kilometer: 6.250 km.</p>
-            <p>Servis terakhir: <time datetime="2026-07-22">22 Juli 2026</time> (Servis Sistem Kelistrikan).</p>
+          <!-- Card 4 -->
+          <article class="bg-white rounded-lg border border-gray-200 shadow-xs hover:shadow-md transition p-4 flex flex-col">
+            <h3 class="text-base font-bold text-gray-900 mb-2">Alva One</h3>
+            <div class="bg-gray-50 rounded-lg p-2 mb-3 flex items-center justify-center h-28">
+              <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik dengan baterai untuk Alva One" class="max-h-full w-auto">
+            </div>
+            <p class="text-xs text-gray-600 space-y-1 mb-3">
+              <span class="block"><span class="font-medium text-gray-700">Jenis:</span> Listrik</span>
+              <span class="block"><span class="font-medium text-gray-700">Plat:</span> B 7719 EVA</span>
+              <span class="block"><span class="font-medium text-gray-700">Tahun:</span> 2024 &bull; 6.250 km</span>
+            </p>
+            <p class="text-xs text-gray-500 mt-auto pt-2 border-t border-gray-100">
+              Servis terakhir: <time datetime="2026-07-22" class="font-medium text-gray-700">22 Jul 2026</time> (Servis Sistem Kelistrikan)
+            </p>
           </article>
+
         </div>
       </section>
 
-      <aside aria-labelledby="judul-tips" class="panel callout">
-        <h2 id="judul-tips">Tips Perawatan</h2>
-        <ul>
-          <li>Motor konvensional: ganti oli mesin setiap 2.000 - 3.000 km atau sesuai buku manual.</li>
-          <li>Motor listrik: hindari mengisi daya baterai hingga habis total dan periksa kondisi baterai secara berkala.</li>
+      <!-- Aside Tips Perawatan -->
+      <aside aria-labelledby="judul-tips" class="bg-blue-50/80 border border-blue-200 rounded-xl p-6 text-sm text-blue-950">
+        <h2 id="judul-tips" class="text-base font-bold text-blue-900 mb-2 flex items-center gap-2">
+          <span>💡</span> Tips Perawatan Motor
+        </h2>
+        <ul class="list-disc list-inside space-y-1.5 text-blue-900 text-xs sm:text-sm">
+          <li><strong>Motor konvensional:</strong> Ganti oli mesin setiap 2.000 - 3.000 km atau sesuai anjuran buku manual.</li>
+          <li><strong>Motor listrik:</strong> Hindari membiarkan baterai habis total hingga 0% dan periksa kondisi soket serta kontroler secara rutin.</li>
         </ul>
       </aside>
+
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p><small>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</small></p>
-        <p>Dibuat oleh: <span class="author">Thoriq - 103022430006</span></p>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto py-6 text-center text-xs text-gray-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-1">
+        <p>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</p>
+        <p>Dibuat oleh: <span class="font-semibold text-gray-700">Thoriq - 103022430006</span></p>
       </div>
     </footer>
+
+    <!-- Script navigasi mobile -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

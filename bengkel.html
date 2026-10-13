@@ -5,122 +5,312 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Daftar bengkel mitra Bengkelin untuk motor konvensional dan motor listrik.">
     <title>Daftar Bengkel Mitra | Bengkelin</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#1f6feb',
+                dark: '#1550b8',
+                light: '#e8f0fe',
+              },
+              aksen: '#ffd33d',
+              konvensional: '#c2410c',
+              listrik: '#047857',
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
-    <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
+  <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between antialiased overflow-x-hidden">
+    <!-- Aksesibilitas skip-link -->
+    <a href="#konten-utama" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-md focus:shadow-md">
+      Langsung ke konten utama
+    </a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <a href="index.html" class="brand-logo">
-            <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" width="200" height="60">
-          </a>
-          <p class="tagline"><strong>Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.</p>
+    <!-- Header & Navigasi Responsif -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          
+          <!-- Logo & Tagline -->
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="flex-shrink-0">
+              <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" class="h-10 sm:h-12 w-auto">
+            </a>
+            <p class="hidden lg:block text-xs text-gray-500 border-l border-gray-200 pl-4 py-1 max-w-xs leading-snug">
+              <strong class="text-gray-700">Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.
+            </p>
+          </div>
+
+          <!-- Navigasi Desktop -->
+          <nav aria-label="Navigasi utama" class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Beranda
+            </a>
+            <a href="booking.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Booking Servis
+            </a>
+            <a href="detail.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Detail Servis
+            </a>
+            <a href="bengkel.html" aria-current="page" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand bg-blue-50">
+              Daftar Bengkel
+            </a>
+          </nav>
+
+          <!-- Tombol Hamburger Mobile -->
+          <div class="flex md:hidden">
+            <button id="menu-btn" type="button" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Buka menu navigasi" aria-expanded="false">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
         </div>
-        <nav aria-label="Navigasi utama" class="main-nav">
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="booking.html">Booking Servis</a></li>
-            <li><a href="detail.html">Detail Servis</a></li>
-            <li><a href="bengkel.html" aria-current="page">Daftar Bengkel</a></li>
-          </ul>
-        </nav>
       </div>
+
+      <!-- Menu Dropdown Mobile -->
+      <nav id="mobile-menu" aria-label="Navigasi mobile" class="hidden md:hidden border-t border-gray-200 bg-white px-4 pt-2 pb-4 space-y-1 shadow-lg">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Beranda
+        </a>
+        <a href="booking.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Booking Servis
+        </a>
+        <a href="detail.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Detail Servis
+        </a>
+        <a href="bengkel.html" aria-current="page" class="block px-3 py-2 rounded-md text-base font-semibold text-brand bg-blue-50">
+          Daftar Bengkel
+        </a>
+      </nav>
     </header>
 
-    <main id="konten-utama" class="container">
-      <div class="page-intro">
-        <h1>Daftar Bengkel Mitra</h1>
-        <p>
-          Berikut bengkel mitra Bengkelin beserta layanan untuk motor konvensional dan motor listrik.
-          Pilih bengkel yang sesuai lalu lakukan booking servis.
+    <!-- Konten Utama -->
+    <main id="konten-utama" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 min-w-0 space-y-8">
+      
+      <!-- Page Intro -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight mb-2">Daftar Bengkel Mitra</h1>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+          Berikut bengkel mitra resmi Bengkelin beserta layanan untuk motor konvensional dan motor listrik.
+          Pilih bengkel yang sesuai dengan kebutuhan kendaraan Anda, lalu lakukan pemesanan jadwal servis.
         </p>
       </div>
 
-      <div class="card-grid card-grid-wide">
-        <article aria-labelledby="bengkel-sinar-roda" class="card workshop">
-          <h2 id="bengkel-sinar-roda">Bengkel Sinar Roda</h2>
-          <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Sinar Roda dengan pintu garasi" width="320" height="200">
-          <p class="address"><span class="label">Alamat:</span> Jl. Kenanga Raya No. 45, Kelurahan Contoh, Kota Fiktif</p>
-          <h3 class="service-title service-konvensional">Layanan Motor Konvensional</h3>
-          <ul class="service-list">
-            <li>Ganti Oli Mesin</li>
-            <li>Tune Up</li>
-            <li>Servis Rutin</li>
-            <li>Servis CVT</li>
-          </ul>
-          <h3 class="service-title service-listrik">Layanan Motor Listrik</h3>
-          <p class="muted">Belum tersedia.</p>
-          <h3>Jam Buka</h3>
-          <p>Senin - Sabtu, <time datetime="08:00">08.00</time> - <time datetime="17:00">17.00</time> WIB</p>
-          <p class="card-action"><a href="booking.html" class="button">Booking di Bengkel Sinar Roda</a></p>
+      <!-- Grid Bengkel Mitra (2-Kolom Desktop & 1-Kolom Mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Kartu Bengkel 1 -->
+        <article aria-labelledby="bengkel-sinar-roda" class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+          <div>
+            <h2 id="bengkel-sinar-roda" class="text-xl font-bold text-gray-900 mb-2">Bengkel Sinar Roda</h2>
+            
+            <div class="bg-gray-50 rounded-lg p-3 mb-4 flex items-center justify-center h-44">
+              <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Sinar Roda dengan pintu garasi" class="max-h-full w-auto">
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4 pb-3 border-b border-gray-100">
+              <span class="font-semibold text-gray-700">Alamat:</span> Jl. Kenanga Raya No. 45, Kelurahan Contoh, Kota Fiktif
+            </p>
+
+            <!-- Layanan Konvensional -->
+            <div class="mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-orange-800 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span> Layanan Motor Konvensional
+              </h3>
+              <ul class="flex flex-wrap gap-1.5">
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Ganti Oli Mesin</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Tune Up</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Servis Rutin</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Servis CVT</li>
+              </ul>
+            </div>
+
+            <!-- Layanan Listrik -->
+            <div class="mb-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-gray-400"></span> Layanan Motor Listrik
+              </h3>
+              <p class="text-xs text-gray-400 italic">Belum tersedia.</p>
+            </div>
+
+            <!-- Jam Buka -->
+            <div class="text-xs text-gray-500 mb-4">
+              <span class="font-semibold text-gray-700">Jam Buka:</span> Senin - Sabtu, <time datetime="08:00">08.00</time> - <time datetime="17:00">17.00</time> WIB
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-100">
+            <a href="booking.html" class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-lg shadow-sm transition">
+              Booking di Bengkel Sinar Roda
+            </a>
+          </div>
         </article>
 
-        <article aria-labelledby="bengkel-karya-piston" class="card workshop">
-          <h2 id="bengkel-karya-piston">Bengkel Karya Piston</h2>
-          <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Karya Piston dengan papan nama" width="320" height="200">
-          <p class="address"><span class="label">Alamat:</span> Jl. Merpati No. 8, Kelurahan Contoh, Kota Fiktif</p>
-          <h3 class="service-title service-konvensional">Layanan Motor Konvensional</h3>
-          <ul class="service-list">
-            <li>Tune Up</li>
-            <li>Servis Karburator/Injeksi</li>
-            <li>Ganti Busi</li>
-            <li>Pengecekan Rem</li>
-          </ul>
-          <h3 class="service-title service-listrik">Layanan Motor Listrik</h3>
-          <p class="muted">Belum tersedia.</p>
-          <h3>Jam Buka</h3>
-          <p>Senin - Jumat, <time datetime="09:00">09.00</time> - <time datetime="18:00">18.00</time> WIB</p>
-          <p class="card-action"><a href="booking.html" class="button">Booking di Bengkel Karya Piston</a></p>
+        <!-- Kartu Bengkel 2 -->
+        <article aria-labelledby="bengkel-karya-piston" class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+          <div>
+            <h2 id="bengkel-karya-piston" class="text-xl font-bold text-gray-900 mb-2">Bengkel Karya Piston</h2>
+            
+            <div class="bg-gray-50 rounded-lg p-3 mb-4 flex items-center justify-center h-44">
+              <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Karya Piston dengan papan nama" class="max-h-full w-auto">
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4 pb-3 border-b border-gray-100">
+              <span class="font-semibold text-gray-700">Alamat:</span> Jl. Merpati No. 8, Kelurahan Contoh, Kota Fiktif
+            </p>
+
+            <!-- Layanan Konvensional -->
+            <div class="mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-orange-800 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span> Layanan Motor Konvensional
+              </h3>
+              <ul class="flex flex-wrap gap-1.5">
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Tune Up</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Servis Karburator/Injeksi</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Ganti Busi</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Pengecekan Rem</li>
+              </ul>
+            </div>
+
+            <!-- Layanan Listrik -->
+            <div class="mb-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-gray-400"></span> Layanan Motor Listrik
+              </h3>
+              <p class="text-xs text-gray-400 italic">Belum tersedia.</p>
+            </div>
+
+            <!-- Jam Buka -->
+            <div class="text-xs text-gray-500 mb-4">
+              <span class="font-semibold text-gray-700">Jam Buka:</span> Senin - Jumat, <time datetime="09:00">09.00</time> - <time datetime="18:00">18.00</time> WIB
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-100">
+            <a href="booking.html" class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-lg shadow-sm transition">
+              Booking di Bengkel Karya Piston
+            </a>
+          </div>
         </article>
 
-        <article aria-labelledby="bengkel-volta-mandiri" class="card workshop">
-          <h2 id="bengkel-volta-mandiri">Bengkel Volta Mandiri</h2>
-          <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Volta Mandiri, bengkel khusus motor listrik" width="320" height="200">
-          <p class="address"><span class="label">Alamat:</span> Jl. Arus Listrik No. 12, Kelurahan Contoh, Kota Fiktif</p>
-          <h3 class="service-title service-konvensional">Layanan Motor Konvensional</h3>
-          <p class="muted">Tidak tersedia, bengkel ini khusus motor listrik.</p>
-          <h3 class="service-title service-listrik">Layanan Motor Listrik</h3>
-          <ul class="service-list">
-            <li>Pengecekan Baterai</li>
-            <li>Servis Sistem Kelistrikan</li>
-            <li>Pemeriksaan Motor Penggerak (Dinamo)</li>
-            <li>Pengecekan Charger</li>
-          </ul>
-          <h3>Jam Buka</h3>
-          <p>Setiap hari, <time datetime="08:00">08.00</time> - <time datetime="20:00">20.00</time> WIB</p>
-          <p class="card-action"><a href="booking.html" class="button">Booking di Bengkel Volta Mandiri</a></p>
+        <!-- Kartu Bengkel 3 -->
+        <article aria-labelledby="bengkel-volta-mandiri" class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+          <div>
+            <h2 id="bengkel-volta-mandiri" class="text-xl font-bold text-gray-900 mb-2">Bengkel Volta Mandiri</h2>
+            
+            <div class="bg-gray-50 rounded-lg p-3 mb-4 flex items-center justify-center h-44">
+              <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Volta Mandiri, bengkel khusus motor listrik" class="max-h-full w-auto">
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4 pb-3 border-b border-gray-100">
+              <span class="font-semibold text-gray-700">Alamat:</span> Jl. Arus Listrik No. 12, Kelurahan Contoh, Kota Fiktif
+            </p>
+
+            <!-- Layanan Konvensional -->
+            <div class="mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-gray-400"></span> Layanan Motor Konvensional
+              </h3>
+              <p class="text-xs text-gray-400 italic">Tidak tersedia, bengkel ini khusus motor listrik.</p>
+            </div>
+
+            <!-- Layanan Listrik -->
+            <div class="mb-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Layanan Motor Listrik
+              </h3>
+              <ul class="flex flex-wrap gap-1.5">
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Pengecekan Baterai</li>
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Servis Sistem Kelistrikan</li>
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Pemeriksaan Motor Penggerak (Dinamo)</li>
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Pengecekan Charger</li>
+              </ul>
+            </div>
+
+            <!-- Jam Buka -->
+            <div class="text-xs text-gray-500 mb-4">
+              <span class="font-semibold text-gray-700">Jam Buka:</span> Setiap hari, <time datetime="08:00">08.00</time> - <time datetime="20:00">20.00</time> WIB
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-100">
+            <a href="booking.html" class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-lg shadow-sm transition">
+              Booking di Bengkel Volta Mandiri
+            </a>
+          </div>
         </article>
 
-        <article aria-labelledby="bengkel-arus-dua-roda" class="card workshop">
-          <h2 id="bengkel-arus-dua-roda">Bengkel Arus Dua Roda</h2>
-          <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Arus Dua Roda yang melayani motor bensin dan listrik" width="320" height="200">
-          <p class="address"><span class="label">Alamat:</span> Jl. Cendrawasih No. 21, Kelurahan Contoh, Kota Fiktif</p>
-          <h3 class="service-title service-konvensional">Layanan Motor Konvensional</h3>
-          <ul class="service-list">
-            <li>Ganti Oli Mesin</li>
-            <li>Servis Rutin</li>
-            <li>Ganti Ban</li>
-          </ul>
-          <h3 class="service-title service-listrik">Layanan Motor Listrik</h3>
-          <ul class="service-list">
-            <li>Pengecekan Baterai</li>
-            <li>Servis Berkala Motor Listrik</li>
-            <li>Ganti Ban</li>
-          </ul>
-          <h3>Jam Buka</h3>
-          <p>Senin - Sabtu, <time datetime="08:00">08.00</time> - <time datetime="16:00">16.00</time> WIB</p>
-          <p class="card-action"><a href="booking.html" class="button">Booking di Bengkel Arus Dua Roda</a></p>
+        <!-- Kartu Bengkel 4 -->
+        <article aria-labelledby="bengkel-arus-dua-roda" class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+          <div>
+            <h2 id="bengkel-arus-dua-roda" class="text-xl font-bold text-gray-900 mb-2">Bengkel Arus Dua Roda</h2>
+            
+            <div class="bg-gray-50 rounded-lg p-3 mb-4 flex items-center justify-center h-44">
+              <img src="assets/images/bengkel.svg" alt="Ilustrasi gedung Bengkel Arus Dua Roda yang melayani motor bensin dan listrik" class="max-h-full w-auto">
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4 pb-3 border-b border-gray-100">
+              <span class="font-semibold text-gray-700">Alamat:</span> Jl. Cendrawasih No. 21, Kelurahan Contoh, Kota Fiktif
+            </p>
+
+            <!-- Layanan Konvensional -->
+            <div class="mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-orange-800 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span> Layanan Motor Konvensional
+              </h3>
+              <ul class="flex flex-wrap gap-1.5">
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Ganti Oli Mesin</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Servis Rutin</li>
+                <li class="bg-orange-50 text-orange-800 text-xs px-2.5 py-1 rounded-md font-medium border border-orange-100">Ganti Ban</li>
+              </ul>
+            </div>
+
+            <!-- Layanan Listrik -->
+            <div class="mb-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Layanan Motor Listrik
+              </h3>
+              <ul class="flex flex-wrap gap-1.5">
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Pengecekan Baterai</li>
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Servis Berkala Motor Listrik</li>
+                <li class="bg-emerald-50 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-medium border border-emerald-100">Ganti Ban</li>
+              </ul>
+            </div>
+
+            <!-- Jam Buka -->
+            <div class="text-xs text-gray-500 mb-4">
+              <span class="font-semibold text-gray-700">Jam Buka:</span> Senin - Sabtu, <time datetime="08:00">08.00</time> - <time datetime="16:00">16.00</time> WIB
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-100">
+            <a href="booking.html" class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold rounded-lg shadow-sm transition">
+              Booking di Bengkel Arus Dua Roda
+            </a>
+          </div>
         </article>
+
       </div>
+
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p><small>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</small></p>
-        <p>Dibuat oleh: <span class="author">Thoriq - 103022430006</span></p>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto py-6 text-center text-xs text-gray-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-1">
+        <p>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</p>
+        <p>Dibuat oleh: <span class="font-semibold text-gray-700">Thoriq - 103022430006</span></p>
       </div>
     </footer>
+
+    <!-- Script navigasi mobile -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

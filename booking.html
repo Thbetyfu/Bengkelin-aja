@@ -5,207 +5,332 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulir booking servis motor konvensional dan motor listrik di Bengkelin.">
     <title>Form Booking Servis (Tambah/Edit) | Bengkelin</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#1f6feb',
+                dark: '#1550b8',
+                light: '#e8f0fe',
+              },
+              aksen: '#ffd33d',
+              konvensional: '#c2410c',
+              listrik: '#047857',
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
-    <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
+  <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between antialiased overflow-x-hidden">
+    <!-- Aksesibilitas skip-link -->
+    <a href="#konten-utama" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-md focus:shadow-md">
+      Langsung ke konten utama
+    </a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <a href="index.html" class="brand-logo">
-            <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" width="200" height="60">
-          </a>
-          <p class="tagline"><strong>Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.</p>
+    <!-- Header & Navigasi Responsif -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          
+          <!-- Logo & Tagline -->
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="flex-shrink-0">
+              <img src="assets/images/logo-bengkelin.svg" alt="Logo Bengkelin, kembali ke halaman Beranda" class="h-10 sm:h-12 w-auto">
+            </a>
+            <p class="hidden lg:block text-xs text-gray-500 border-l border-gray-200 pl-4 py-1 max-w-xs leading-snug">
+              <strong class="text-gray-700">Bengkelin</strong> - Booking servis motor konvensional dan motor listrik dengan mudah.
+            </p>
+          </div>
+
+          <!-- Navigasi Desktop -->
+          <nav aria-label="Navigasi utama" class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Beranda
+            </a>
+            <a href="booking.html" aria-current="page" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand bg-blue-50">
+              Booking Servis
+            </a>
+            <a href="detail.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Detail Servis
+            </a>
+            <a href="bengkel.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-100 transition">
+              Daftar Bengkel
+            </a>
+          </nav>
+
+          <!-- Tombol Hamburger Mobile -->
+          <div class="flex md:hidden">
+            <button id="menu-btn" type="button" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Buka menu navigasi" aria-expanded="false">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
         </div>
-        <nav aria-label="Navigasi utama" class="main-nav">
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="booking.html" aria-current="page">Booking Servis</a></li>
-            <li><a href="detail.html">Detail Servis</a></li>
-            <li><a href="bengkel.html">Daftar Bengkel</a></li>
-          </ul>
-        </nav>
       </div>
+
+      <!-- Menu Dropdown Mobile -->
+      <nav id="mobile-menu" aria-label="Navigasi mobile" class="hidden md:hidden border-t border-gray-200 bg-white px-4 pt-2 pb-4 space-y-1 shadow-lg">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Beranda
+        </a>
+        <a href="booking.html" aria-current="page" class="block px-3 py-2 rounded-md text-base font-semibold text-brand bg-blue-50">
+          Booking Servis
+        </a>
+        <a href="detail.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Detail Servis
+        </a>
+        <a href="bengkel.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50">
+          Daftar Bengkel
+        </a>
+      </nav>
     </header>
 
-    <main id="konten-utama" class="container">
-      <div class="page-intro">
-        <h1>Form Booking Servis</h1>
-        <p>
+    <!-- Konten Utama -->
+    <main id="konten-utama" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 min-w-0 space-y-8">
+      
+      <!-- Page Intro -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight mb-2">Form Booking Servis</h1>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
           Gunakan formulir ini untuk menambah booking servis baru atau mengubah booking yang sudah ada.
-          Kolom bertanda <span class="required">*</span> wajib diisi.
+          Kolom bertanda <span class="text-red-500 font-bold">*</span> wajib diisi.
         </p>
       </div>
 
-      <div class="booking-layout">
-        <aside aria-labelledby="judul-info-layanan" class="panel callout">
-          <h2 id="judul-info-layanan">Kami melayani dua jenis motor</h2>
-          <figure class="figure-pair">
-            <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional berbahan bakar bensin berwarna merah" width="320" height="200">
-            <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik berwarna hijau dengan ikon baterai dan petir" width="320" height="200">
-            <figcaption>Bengkelin melayani servis motor konvensional (bensin) dan motor listrik.</figcaption>
-          </figure>
+      <!-- Grid Layout: Sidebar Informasi & Formulir Booking -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Aside Kolom Kiri: Informasi Jenis Motor -->
+        <aside aria-labelledby="judul-info-layanan" class="lg:col-span-1 space-y-6">
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sticky top-24">
+            <h2 id="judul-info-layanan" class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              Kami Melayani Dua Jenis Motor
+            </h2>
+            <figure class="space-y-4">
+              <div class="bg-orange-50 border border-orange-100 rounded-lg p-3 text-center">
+                <img src="assets/images/motor-konvensional.svg" alt="Ilustrasi motor konvensional berbahan bakar bensin berwarna merah" class="h-28 mx-auto w-auto">
+                <span class="inline-block mt-2 font-semibold text-xs text-orange-800 bg-orange-100 px-2 py-0.5 rounded">Motor Konvensional (Bensin)</span>
+              </div>
+
+              <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-3 text-center">
+                <img src="assets/images/motor-listrik.svg" alt="Ilustrasi motor listrik berwarna hijau dengan ikon baterai dan petir" class="h-28 mx-auto w-auto">
+                <span class="inline-block mt-2 font-semibold text-xs text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Motor Listrik (EV)</span>
+              </div>
+
+              <figcaption class="text-xs text-gray-500 text-center leading-relaxed">
+                Bengkelin menghubungkan Anda dengan teknisi spesialis motor bensin dan motor bertenaga baterai.
+              </figcaption>
+            </figure>
+          </div>
         </aside>
 
-        <form action="#" method="post" class="panel booking-form">
-          <fieldset>
-            <legend>Data Kendaraan</legend>
+        <!-- Form Kolom Kanan: Formulir Booking -->
+        <div class="lg:col-span-2">
+          <form action="#" method="post" class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8 space-y-6">
+            
+            <!-- Fieldset 1: Data Kendaraan -->
+            <fieldset class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+              <legend class="text-base font-bold text-gray-900 px-2">Data Kendaraan</legend>
 
-            <fieldset class="radio-group">
-              <legend>Jenis Motor <span class="required">*</span></legend>
-              <span class="radio-option">
-                <input type="radio" id="jenis-konvensional" name="jenis_motor" value="konvensional" required>
-                <label for="jenis-konvensional">Konvensional (Bensin)</label>
-              </span>
-              <span class="radio-option">
-                <input type="radio" id="jenis-listrik" name="jenis_motor" value="listrik">
-                <label for="jenis-listrik">Listrik</label>
-              </span>
+              <!-- Radio Jenis Motor -->
+              <fieldset class="border-0 p-0 m-0">
+                <legend class="block text-sm font-semibold text-gray-700 mb-2">Jenis Motor <span class="text-red-500">*</span></legend>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label for="jenis-konvensional" class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:border-brand hover:bg-blue-50/50 transition">
+                    <input type="radio" id="jenis-konvensional" name="jenis_motor" value="konvensional" required class="text-brand focus:ring-brand">
+                    <span class="text-sm font-medium text-gray-800">Konvensional (Bensin)</span>
+                  </label>
+                  <label for="jenis-listrik" class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:border-brand hover:bg-blue-50/50 transition">
+                    <input type="radio" id="jenis-listrik" name="jenis_motor" value="listrik" class="text-brand focus:ring-brand">
+                    <span class="text-sm font-medium text-gray-800">Listrik</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Merek & Model Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="merek" class="block text-sm font-semibold text-gray-700 mb-1">Merek <span class="text-red-500">*</span></label>
+                  <select id="merek" name="merek" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                    <option value="">-- Pilih merek --</option>
+                    <option value="honda">Honda</option>
+                    <option value="yamaha">Yamaha</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="kawasaki">Kawasaki</option>
+                    <option value="tvs">TVS</option>
+                    <option value="gesits">Gesits</option>
+                    <option value="alva">Alva</option>
+                    <option value="volta">Volta</option>
+                    <option value="selis">Selis</option>
+                    <option value="united">United E-Motor</option>
+                    <option value="lainnya">Lainnya</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="model" class="block text-sm font-semibold text-gray-700 mb-1">Model <span class="text-red-500">*</span></label>
+                  <input type="text" id="model" name="model" placeholder="Contoh: Vario 125" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
+              </div>
+
+              <!-- Plat Nomor, Tahun, Kilometer Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="plat-nomor" class="block text-sm font-semibold text-gray-700 mb-1">Plat Nomor <span class="text-red-500">*</span></label>
+                  <input type="text" id="plat-nomor" name="plat_nomor" placeholder="Contoh: B 1234 ABC" maxlength="12" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand uppercase">
+                </div>
+
+                <div>
+                  <label for="tahun" class="block text-sm font-semibold text-gray-700 mb-1">Tahun Pembuatan</label>
+                  <input type="number" id="tahun" name="tahun" min="1990" max="2026" placeholder="2022" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
+
+                <div>
+                  <label for="kilometer" class="block text-sm font-semibold text-gray-700 mb-1">Kilometer Saat Ini (km)</label>
+                  <input type="number" id="kilometer" name="kilometer" min="0" step="1" placeholder="12500" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
+              </div>
+
             </fieldset>
 
-            <p class="form-row">
-              <label for="merek">Merek <span class="required">*</span></label>
-              <select id="merek" name="merek" required>
-                <option value="">-- Pilih merek --</option>
-                <option value="honda">Honda</option>
-                <option value="yamaha">Yamaha</option>
-                <option value="suzuki">Suzuki</option>
-                <option value="kawasaki">Kawasaki</option>
-                <option value="tvs">TVS</option>
-                <option value="gesits">Gesits</option>
-                <option value="alva">Alva</option>
-                <option value="volta">Volta</option>
-                <option value="selis">Selis</option>
-                <option value="united">United E-Motor</option>
-                <option value="lainnya">Lainnya</option>
-              </select>
-            </p>
+            <!-- Fieldset 2: Pilih Bengkel & Layanan -->
+            <fieldset class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+              <legend class="text-base font-bold text-gray-900 px-2">Pilih Bengkel &amp; Layanan</legend>
 
-            <p class="form-row">
-              <label for="model">Model <span class="required">*</span></label>
-              <input type="text" id="model" name="model" placeholder="Contoh: Vario 125" required>
-            </p>
+              <div>
+                <label for="bengkel" class="block text-sm font-semibold text-gray-700 mb-1">Bengkel Mitra <span class="text-red-500">*</span></label>
+                <select id="bengkel" name="bengkel" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                  <option value="">-- Pilih bengkel --</option>
+                  <option value="sinar-roda">Bengkel Sinar Roda (Konvensional)</option>
+                  <option value="karya-piston">Bengkel Karya Piston (Konvensional)</option>
+                  <option value="volta-mandiri">Bengkel Volta Mandiri (Listrik)</option>
+                  <option value="arus-dua-roda">Bengkel Arus Dua Roda (Konvensional &amp; Listrik)</option>
+                </select>
+              </div>
 
-            <p class="form-row">
-              <label for="plat-nomor">Plat Nomor <span class="required">*</span></label>
-              <input type="text" id="plat-nomor" name="plat_nomor" placeholder="Contoh: B 1234 ABC" maxlength="12" required>
-            </p>
+              <div>
+                <label for="layanan" class="block text-sm font-semibold text-gray-700 mb-1">Jenis Layanan <span class="text-red-500">*</span></label>
+                <select id="layanan" name="layanan" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                  <option value="">-- Pilih layanan --</option>
+                  <optgroup label="Motor Konvensional">
+                    <option value="ganti-oli">Ganti Oli Mesin</option>
+                    <option value="tune-up">Tune Up</option>
+                    <option value="servis-rutin">Servis Rutin</option>
+                    <option value="servis-cvt">Servis CVT</option>
+                    <option value="ganti-busi">Ganti Busi</option>
+                    <option value="servis-karburator-injeksi">Servis Karburator/Injeksi</option>
+                  </optgroup>
+                  <optgroup label="Motor Listrik">
+                    <option value="cek-baterai">Pengecekan Baterai</option>
+                    <option value="servis-kelistrikan">Servis Sistem Kelistrikan</option>
+                    <option value="cek-dinamo">Pemeriksaan Motor Penggerak (Dinamo)</option>
+                    <option value="cek-charger">Pengecekan Charger</option>
+                    <option value="servis-berkala-listrik">Servis Berkala Motor Listrik</option>
+                  </optgroup>
+                  <optgroup label="Umum (Semua Jenis Motor)">
+                    <option value="cek-rem">Pengecekan Rem</option>
+                    <option value="ganti-ban">Ganti Ban</option>
+                  </optgroup>
+                </select>
+              </div>
+            </fieldset>
 
-            <p class="form-row">
-              <label for="tahun">Tahun Pembuatan</label>
-              <input type="number" id="tahun" name="tahun" min="1990" max="2026" placeholder="2022">
-            </p>
+            <!-- Fieldset 3: Jadwal Servis -->
+            <fieldset class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+              <legend class="text-base font-bold text-gray-900 px-2">Jadwal Servis</legend>
 
-            <p class="form-row">
-              <label for="kilometer">Kilometer Saat Ini (km)</label>
-              <input type="number" id="kilometer" name="kilometer" min="0" step="1" placeholder="12500">
-            </p>
-          </fieldset>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="tanggal-servis" class="block text-sm font-semibold text-gray-700 mb-1">Tanggal <span class="text-red-500">*</span></label>
+                  <input type="date" id="tanggal-servis" name="tanggal_servis" min="2026-09-26" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
 
-          <fieldset>
-            <legend>Pilih Bengkel &amp; Layanan</legend>
+                <div>
+                  <label for="jam-servis" class="block text-sm font-semibold text-gray-700 mb-1">Jam Kedatangan <span class="text-red-500">*</span></label>
+                  <input type="time" id="jam-servis" name="jam_servis" min="08:00" max="17:00" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
+              </div>
+            </fieldset>
 
-            <p class="form-row">
-              <label for="bengkel">Bengkel <span class="required">*</span></label>
-              <select id="bengkel" name="bengkel" required>
-                <option value="">-- Pilih bengkel --</option>
-                <option value="sinar-roda">Bengkel Sinar Roda (Konvensional)</option>
-                <option value="karya-piston">Bengkel Karya Piston (Konvensional)</option>
-                <option value="volta-mandiri">Bengkel Volta Mandiri (Listrik)</option>
-                <option value="arus-dua-roda">Bengkel Arus Dua Roda (Konvensional &amp; Listrik)</option>
-              </select>
-            </p>
+            <!-- Fieldset 4: Kontak Pemilik -->
+            <fieldset class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+              <legend class="text-base font-bold text-gray-900 px-2">Data Kontak Pemilik</legend>
 
-            <p class="form-row">
-              <label for="layanan">Layanan <span class="required">*</span></label>
-              <select id="layanan" name="layanan" required>
-                <option value="">-- Pilih layanan --</option>
-                <optgroup label="Motor Konvensional">
-                  <option value="ganti-oli">Ganti Oli Mesin</option>
-                  <option value="tune-up">Tune Up</option>
-                  <option value="servis-rutin">Servis Rutin</option>
-                  <option value="servis-cvt">Servis CVT</option>
-                  <option value="ganti-busi">Ganti Busi</option>
-                  <option value="servis-karburator-injeksi">Servis Karburator/Injeksi</option>
-                </optgroup>
-                <optgroup label="Motor Listrik">
-                  <option value="cek-baterai">Pengecekan Baterai</option>
-                  <option value="servis-kelistrikan">Servis Sistem Kelistrikan</option>
-                  <option value="cek-dinamo">Pemeriksaan Motor Penggerak (Dinamo)</option>
-                  <option value="cek-charger">Pengecekan Charger</option>
-                  <option value="servis-berkala-listrik">Servis Berkala Motor Listrik</option>
-                </optgroup>
-                <optgroup label="Umum (Semua Jenis Motor)">
-                  <option value="cek-rem">Pengecekan Rem</option>
-                  <option value="ganti-ban">Ganti Ban</option>
-                </optgroup>
-              </select>
-            </p>
-          </fieldset>
+              <div>
+                <label for="nama" class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap <span class="text-red-500">*</span></label>
+                <input type="text" id="nama" name="nama" autocomplete="name" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+              </div>
 
-          <fieldset>
-            <legend>Jadwal Servis</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="no-hp" class="block text-sm font-semibold text-gray-700 mb-1">Nomor HP / WhatsApp <span class="text-red-500">*</span></label>
+                  <input type="tel" id="no-hp" name="no_hp" autocomplete="tel" placeholder="Contoh: 081234567890" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
 
-            <p class="form-row">
-              <label for="tanggal-servis">Tanggal <span class="required">*</span></label>
-              <input type="date" id="tanggal-servis" name="tanggal_servis" min="2026-09-26" required>
-            </p>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Alamat Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@contoh.com" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand">
+                </div>
+              </div>
+            </fieldset>
 
-            <p class="form-row">
-              <label for="jam-servis">Jam <span class="required">*</span></label>
-              <input type="time" id="jam-servis" name="jam_servis" min="08:00" max="17:00" required>
-            </p>
-          </fieldset>
+            <!-- Fieldset 5: Keluhan dan Catatan -->
+            <fieldset class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+              <legend class="text-base font-bold text-gray-900 px-2">Keluhan dan Catatan</legend>
 
-          <fieldset>
-            <legend>Kontak</legend>
+              <div>
+                <label for="keluhan" class="block text-sm font-semibold text-gray-700 mb-1">Keluhan atau catatan untuk teknisi</label>
+                <textarea id="keluhan" name="keluhan" rows="4" placeholder="Contoh: Mesin terasa kasar saat pagi hari atau jarak tempuh baterai berkurang." class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"></textarea>
+              </div>
 
-            <p class="form-row">
-              <label for="nama">Nama Lengkap <span class="required">*</span></label>
-              <input type="text" id="nama" name="nama" autocomplete="name" required>
-            </p>
+              <div class="flex items-center gap-2 pt-1">
+                <input type="checkbox" id="ingatkan" name="ingatkan_servis" value="ya" checked class="h-4 w-4 text-brand focus:ring-brand rounded border-gray-300">
+                <label for="ingatkan" class="text-sm font-medium text-gray-700 cursor-pointer">
+                  Ingatkan saya untuk servis berikutnya melalui WhatsApp / Email
+                </label>
+              </div>
+            </fieldset>
 
-            <p class="form-row">
-              <label for="no-hp">Nomor HP <span class="required">*</span></label>
-              <input type="tel" id="no-hp" name="no_hp" autocomplete="tel" placeholder="Contoh: 081234567890" required>
-            </p>
+            <!-- Tombol Aksi -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button type="submit" class="px-6 py-2.5 bg-brand hover:bg-brand-dark text-white font-semibold text-sm rounded-lg shadow-sm transition">
+                Simpan Booking
+              </button>
+              <button type="reset" class="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-sm rounded-lg transition">
+                Atur Ulang
+              </button>
+            </div>
 
-            <p class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@contoh.com">
-            </p>
-          </fieldset>
+          </form>
+        </div>
 
-          <fieldset>
-            <legend>Keluhan dan Catatan</legend>
-
-            <p class="form-row">
-              <label for="keluhan">Keluhan atau catatan untuk teknisi</label>
-              <textarea id="keluhan" name="keluhan" rows="5" cols="50" placeholder="Contoh: Mesin terasa kasar saat pagi hari atau jarak tempuh baterai berkurang."></textarea>
-            </p>
-
-            <p class="form-row form-check">
-              <input type="checkbox" id="ingatkan" name="ingatkan_servis" value="ya" checked>
-              <label for="ingatkan">Ingatkan saya untuk servis berikutnya</label>
-            </p>
-          </fieldset>
-
-          <p class="form-actions">
-            <button type="submit" class="button">Simpan Booking</button>
-            <button type="reset" class="button button-secondary">Atur Ulang</button>
-          </p>
-        </form>
       </div>
 
-      <p class="back-link"><a href="index.html">Kembali ke Riwayat &amp; Jadwal Servis</a></p>
+      <!-- Tautan Kembali -->
+      <p class="text-sm">
+        <a href="index.html" class="inline-flex items-center gap-1 text-brand hover:text-brand-dark font-medium hover:underline">
+          &larr; Kembali ke Riwayat &amp; Jadwal Servis
+        </a>
+      </p>
+
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p><small>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</small></p>
-        <p>Dibuat oleh: <span class="author">Thoriq - 103022430006</span></p>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto py-6 text-center text-xs text-gray-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-1">
+        <p>&copy; 2026 Bengkelin. Semua nama bengkel dan data pada situs ini adalah contoh fiktif.</p>
+        <p>Dibuat oleh: <span class="font-semibold text-gray-700">Thoriq - 103022430006</span></p>
       </div>
     </footer>
+
+    <!-- Script navigasi mobile -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
