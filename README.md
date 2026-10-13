@@ -7,10 +7,6 @@ catatan:
 
 tugas buat week 4 done!!!!! (Migrasi ke Tailwind CSS skeleton selesai) pakeknya CDN biar gampang di pakek orang lain masih belum bagus desainnya jelek bgt jujur
 
-
-AI usage:
-Saya menggunakan AI untuk pembuatan SVG dan Pembuatan Dokumentasi, untuk kode saya mengejakan sendiri jadi untuk SVG dan Dokumentasi saya menggunakan AI untuk membantu saya mengejakannya, untuk primt yang saya gunaan di SVG adalah : "buatkan saya desain gamabrnya untuk uji coba aakah gambarnya sudah benar atau tidak, jangan gunakan nano banan untuk membuat gamenya gunakna svg saja agar lebih ringan" lalu utnuk dokumentasinya saya menggunakan primt "buatkan saya dokumenatsi berdasarkan project ini, bantu saya mendokumentasikan di dalam readme.md"
-
 AI yang saya gunakan adalah Antigravity (Gemini) soalnya gratisan pak heheheh!!!!
 
 # Bengkelin
@@ -24,14 +20,6 @@ Bengkelin adalah aplikasi web untuk memesan jadwal servis di bengkel motor, baik
 
 Pada pekan ini, tampilan aplikasi **Bengkelin** diperbarui menjadi **Tailwind CSS** sebagai kerangka tampilan (*frontend skeleton*). Semua 4 halaman (`index.html`, `booking.html`, `detail.html`, dan `bengkel.html`) direfaktor menggunakan utility classes Tailwind CSS serta script interaktif sederhana untuk menu navigasi responsif di mobile (`assets/js/main.js`).
 
-### Alasan Pemilihan Tailwind CSS
-
-Untuk proyek Bengkelin, saya memilih **Tailwind CSS** dibanding Bootstrap dengan alasan:
-
-1. **Fleksibilitas Desain & Kustomisasi Komponen**: Bengkelin memiliki identitas visual yang khas, terutama pembedaan yang jelas antara **motor konvensional** (aksen oranye) dan **motor listrik** (aksen hijau/emerald), serta warna biru utama dari logo. Dengan Tailwind, kustomisasi palet warna, badge status servis, dan kartu bengkel jauh lebih fleksibel tanpa harus menimpa style bawaan komponen.
-2. **Utility-First & Kontrol Responsif Presisi**: Tailwind memudahkan pengaturan breakpoint secara langsung di elemen HTML (`sm:`, `md:`, `lg:`). Misalnya, form booking langsung diubah menjadi 2 kolom di desktop (`lg:grid-cols-3`) dan 1 kolom di mobile secara ringkas dan rapi.
-3. **Ringan & Cocok untuk Skeleton Proyek Fullstack**: Menggunakan Tailwind via CDN dengan konfigurasi tema sederhana membuat struktur skeleton tetap mandiri (*zero-dependency* tanpa harus setup build tooling yang rumit di awal semester), namun siap dilanjutkan ke tahap integrasi JavaScript dan framework frontend pada pekan-pekan berikutnya.
-
 ### Penerapan Komponen & Responsivitas
 
 - **Navigasi Responsif**: Pada desktop, navbar tampil horizontal dengan menu navigasi yang rapi. Pada mobile, tersedia tombol hamburger interaktif (toggle) yang memunculkan menu dropdown.
@@ -41,6 +29,17 @@ Untuk proyek Bengkelin, saya memilih **Tailwind CSS** dibanding Bootstrap dengan
 - **Halaman Daftar Bengkel (`bengkel.html`)**: Grid kartu mitra bengkel (`grid-cols-1 md:grid-cols-2`) lengkap dengan badge daftar layanan dan tombol langsung menuju booking.
 
 ### Screenshot Pekan 4 (Desktop dan Mobile)
+
+AI usage Buat dockumen Readme dan SVG kode manusla dengan bantuan code complite nya vs Code
+
+### Alasan Pemilihan Tailwind CSS
+
+Untuk proyek Bengkelin, saya memilih **Tailwind CSS** dibanding Bootstrap dengan alasan:
+
+1. **Fleksibilitas Desain & Kustomisasi Komponen**: Bengkelin memiliki identitas visual yang khas, terutama pembedaan yang jelas antara **motor konvensional** (aksen oranye) dan **motor listrik** (aksen hijau/emerald), serta warna biru utama dari logo. Dengan Tailwind, kustomisasi palet warna, badge status servis, dan kartu bengkel jauh lebih fleksibel tanpa harus menimpa style bawaan komponen.
+2. **Utility-First & Kontrol Responsif Presisi**: Tailwind memudahkan pengaturan breakpoint secara langsung di elemen HTML (`sm:`, `md:`, `lg:`). Misalnya, form booking langsung diubah menjadi 2 kolom di desktop (`lg:grid-cols-3`) dan 1 kolom di mobile secara ringkas dan rapi.
+3. **Ringan & Cocok untuk Skeleton Proyek Fullstack**: Menggunakan Tailwind via CDN dengan konfigurasi tema sederhana membuat struktur skeleton tetap mandiri (*zero-dependency* tanpa harus setup build tooling yang rumit di awal semester), namun siap dilanjutkan ke tahap integrasi JavaScript dan framework frontend pada pekan-pekan berikutnya.
+
 
 Pengujian responsif dilakukan pada 2 ukuran layar:
 - **Desktop**: 1366 × 768 piksel
