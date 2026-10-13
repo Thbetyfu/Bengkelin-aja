@@ -5,7 +5,7 @@ catatan:
 4. integrasi mungkin nanti dockumennya di buatkan prd,brd,srs dan frs biar lebih jelas arah aplikasinya kemana dan bisa dikerjian dengan vibe koding ketika sudah di week atas, sekarang masih belum full vibe koding
 
 
-tugas buat week 4 done!!!!! (Migrasi ke Tailwind CSS skeleton selesai)
+tugas buat week 4 done!!!!! (Migrasi ke Tailwind CSS skeleton selesai) pakeknya CDN biar gampang di pakek orang lain masih belum bagus desainnya jelek bgt jujur
 
 
 AI usage:
